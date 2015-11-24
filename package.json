@@ -1,0 +1,28 @@
+{
+  "name": "courseproject",
+  "version": "1.0.0",
+  "description": "my course project",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "author": "Ann Aneychik",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-flatten": "^0.2.0",
+    "gulp-inject": "^3.0.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-uglify": "^1.4.2",
+    "main-bower-files": "^2.9.0"
+  }
+}

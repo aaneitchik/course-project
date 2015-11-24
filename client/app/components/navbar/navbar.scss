@@ -1,0 +1,36 @@
+@font-face {
+  font-family: BebasNeue-Book;
+  src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
+}
+
+.navbar, .navbar-brand {
+  color: white !important;
+  font-family: BebasNeue-Book;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  line-height: 32px;
+}
+
+.navbar {
+  background-color: #40c4c4;
+
+  li {
+    a {
+      color: #ffffff !important;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .navbar-brand {
+    margin-right: 30px !important;
+  }
+
+  .navbar-right {
+    a {
+      font-size: 23px !important;
+      padding-top: 20px !important;
+    }
+  }
+}
