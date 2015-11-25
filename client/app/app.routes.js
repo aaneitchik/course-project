@@ -9,7 +9,9 @@
         $stateProvider
             .state('browse', {
                 url: '/browse',
-                templateUrl: 'app/page.browse/browse.html'
+                templateUrl: 'app/page.browse/browse.html',
+                controller: 'BrowseController',
+                controllerAs: 'browse'
             }).state('fileinfo', {
                 url: '/fileinfo',
                 templateUrl: 'app/page.fileinfo/fileinfo.html'
