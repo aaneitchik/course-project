@@ -7,20 +7,14 @@
         .factory('browseService', browseService);
 
     /*ngInject*/
-    function browseService($http) {
+    function browseService() {
         var service = {
-            getFiles: getFiles
+
         };
 
         return service;
 
         //////////////////
-
-        function getFiles() {
-            $http.get('/api/files').then(function(result) {
-                console.log(result.data);
-            });
-        }
 
     }
 

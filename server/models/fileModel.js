@@ -7,6 +7,15 @@ var fileModel = new Schema({
     },
     author: {
         type: String
+    },
+    type: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    dateAdded: {
+        type: Date
     }
 });
 
