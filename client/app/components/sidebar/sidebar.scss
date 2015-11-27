@@ -1,0 +1,37 @@
+@font-face {
+  font-family: BebasNeue-Book;
+  src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
+}
+
+$border-color: rgba(0, 0, 0, 0.4);
+$sidebar-bg-color: #ffffff;
+$text-color: rgba(0, 0, 0, 0.8);
+
+.sidebar {
+  padding: 10px 20px;
+
+  background-color: $sidebar-bg-color;
+
+  //border-right: 1px solid $border-color;
+
+  font-family: BebasNeue-Book;
+  font-size: 24px;
+  font-weight: 500;
+
+  .heading {
+    font-weight: 500;
+  }
+
+  .type {
+    margin-left: 20px;
+
+    a {
+      color: $text-color;
+    }
+
+    a:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
