@@ -30,13 +30,14 @@ var paths = {
     ttf: 'client/**/*.ttf'
 };
 
-var port = 8000;
+var serverPort = 8080;
+var uiPort = 3000;
 
 //Setup proxy to adress the server
 var proxyMiddleware = require('http-proxy-middleware');
 var proxy = proxyMiddleware('/api',
     {
-        target: 'http://localhost:' + port,
+        target: 'http://localhost:' + serverPort,
         pathRewrite: {
             "/api": "/api"
         }
@@ -80,14 +81,15 @@ gulp.task('scripts', ['clean'], function () {
 });
 
 //Reload browser on file change
-gulp.task('browser-reload', ['server-reload'], function () {
+gulp.task('browser-reload', ['inject'], function () {
     browserSync.reload();
 });
 
 //Init browserSync and watch files
-gulp.task('serve', ['server-reload'], function () {
+gulp.task('serve', ['inject'], function () {
     browserSync.init({
         startPath: '/',
+        port: uiPort,
         server: {
             baseDir: bases.dist,
             middleware: [proxy],
@@ -114,22 +116,24 @@ gulp.task('copy', ['clean'], function () {
 });
 
 //Reload server on js files change
-gulp.task('server-reload', ['inject'], function (cb) {
+gulp.task('server-reload', function (cb) {
     var started = false;
     return nodemon({
         script: './server.js',
         ext: 'js',
         env: {
-            PORT: port
+            PORT: serverPort
         },
-        ignore: './node_modules/**'
+        ignore: ['./node_modules/**', './dist', './client']
     }).on('start', function () {
         // to avoid nodemon being started multiple times
         if (!started) {
             cb();
             started = true;
         }
+    }).on('restart', function() {
+        console.log('restarted node');
     });
 });
 
-gulp.task('default', ['serve', 'browser-reload', 'server-reload']);
+gulp.task('default', ['serve', 'browser-reload']); //temporarily removed server-reload, node server isn't killed somehow
