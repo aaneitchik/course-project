@@ -1,1 +1,7 @@
-<h1>BROWSE</h1>
+<div class="browse">
+    <h1 class="heading">BROWSE</h1>
+
+    <div class="pagination-container">
+        <lib-pagination total-items="browse.totalPageNumber" ng-model="browse.currentPage" ng-change="browse.pageChanged()"></lib-pagination>
+    </div>
+</div>

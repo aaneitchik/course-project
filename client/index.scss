@@ -1,0 +1,55 @@
+/* FONTS */
+@font-face {
+  font-family: Lato-Medium;
+  src: url('/assets/fonts/lato/Lato-Medium.ttf');
+}
+
+@font-face {
+  font-family: BebasNeue-Book;
+  src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
+}
+
+$bg-color: #f7f7f7;
+
+html, body, .full-height {
+  height: 100%;
+}
+
+body {
+  font-family: Lato-Medium;
+  background-color: $bg-color;
+}
+
+.outer-container {
+  height: 100% !important;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.sidebar-container {
+
+  @media screen and (max-width: 770px) {
+    display: none;
+  }
+
+}
+
+.ui-view {
+  margin-bottom: -9999px;
+  padding-bottom: -9999px;
+  background-color: white !important;
+}
+
+/*HEADINGS*/
+.heading {
+  font-family: BebasNeue-Book;
+  letter-spacing: 3.5px;
+
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/*UTILITY CLASSES*/
+.no-padding {
+  padding: 0;
+}
