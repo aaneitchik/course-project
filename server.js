@@ -3,9 +3,9 @@ var express = require('express'),
 
 var app = express();
 var port = process.env.PORT || 8080;
-var fileRouter = require('./server/routes.js');
+var fileRouter = require('./server/routes');
 
-var database = require('./config/database.js');
+var database = require('./config/database');
 mongoose.connect(database.url);
 
 app.use('/api', fileRouter);

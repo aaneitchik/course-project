@@ -10,6 +10,7 @@
 }
 
 $bg-color: #f7f7f7;
+$text-color: rgba(0, 0, 0, 0.7);
 
 html, body, .full-height {
   height: 100%;
@@ -52,4 +53,36 @@ body {
 /*UTILITY CLASSES*/
 .no-padding {
   padding: 0;
+}
+
+/*PAGINATION*/
+.pagination {
+
+  .disabled {
+    a {
+      cursor: default !important;
+    }
+  }
+
+  .active {
+    a {
+      color: black;
+    }
+    a:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  li {
+    a {
+      border: none;
+      color: $text-color;
+      background-color: white !important;
+    }
+    a:hover {
+      background-color: white;
+      color: black;
+    }
+  }
 }

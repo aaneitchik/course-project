@@ -8,7 +8,6 @@
 
     /*@ngInject*/
     function fileAPI($http) {
-        var pageSize = 10;
 
         var api = {
             getFiles: getFiles,
@@ -19,15 +18,13 @@
 
         return api;
 
-
-
         function getFiles() {
             return $http.get('/api/files').then(function(result) {
                 return result.data;
             });
         }
 
-        function getFilesByPage(pageNumber) {
+        function getFilesByPage(pageNumber, pageSize) {
             return $http.get('/api/files/' + pageNumber + '/' + pageSize).then(function(result) {
                 return result.data;
             });
