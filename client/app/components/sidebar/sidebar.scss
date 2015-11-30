@@ -5,7 +5,7 @@
 
 $border-color: rgba(0, 0, 0, 0.4);
 $sidebar-bg-color: #ffffff;
-$text-color: rgba(0, 0, 0, 0.8);
+$text-color: rgba(0, 0, 0, 0.7);
 
 .sidebar {
   padding: 10px 20px;
@@ -19,7 +19,7 @@ $text-color: rgba(0, 0, 0, 0.8);
   font-weight: 500;
 
   .heading {
-    font-weight: 500;
+    color: black;
   }
 
   .type {
