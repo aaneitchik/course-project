@@ -2,6 +2,9 @@
     <h1 class="heading">BROWSE</h1>
 
     <div class="pagination-container">
-        <lib-pagination total-items="browse.totalPageNumber" ng-model="browse.currentPage" ng-change="browse.pageChanged()"></lib-pagination>
+        <uib-pagination total-items="browse.totalItems" items-per-page="1" ng-model="browse.currentPage"
+                        ng-change="browse.pageChanged()" max-size="browse.maxSize" class="pagination-sm" boundary-links="true"
+                        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                        last-text="&raquo;"></uib-pagination>
     </div>
 </div>

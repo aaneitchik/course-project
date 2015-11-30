@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
     'use strict';
 
@@ -9,43 +9,49 @@
     /*@ngInject*/
     function BrowseController(fileAPI) {
         var vm = this;
+        var pageSize = 1;
+
+        vm.fileList = [];
+
+        //pagination
         vm.currentPage = 1;
-        vm.totalPageNumber = 0;
+        vm.maxSize = 5;
+        vm.totalItems = 4;
 
         vm.getFiles = getFiles;
         vm.getFilesByPage = getFilesByPage;
         vm.getNumberOfFiles = getNumberOfFiles;
-        vm.pageChanged = pageChanged();
+        vm.pageChanged = pageChanged;
 
         vm.getFiles();
         vm.getNumberOfFiles();
-
-        var pageSize = 1;
+        vm.getFilesByPage(1);
 
         //////////////////////////
 
         function getFiles() {
-            fileAPI.getFiles().then(function(data) {
+            fileAPI.getFiles().then(function (data) {
                 console.log('Files received: ', data);
             });
         }
 
-        function getFilesByPage(pageNumber) {
-            fileAPI.getFilesByPage(pageNumber).then(function(data) {
-                console.log('Files on page ' + pageNumber + ' received: ', data);
+        function getFilesByPage() {
+            fileAPI.getFilesByPage(vm.currentPage, pageSize).then(function (data) {
+                vm.fileList = angular.copy(data);
+                console.log('Files on page ' + vm.currentPage + ' received: ', data);
             });
         }
 
         function getNumberOfFiles() {
-            fileAPI.getNumberOfFiles().then(function(data) {
-                vm.totalPageNumber = data/pageSize;
+            fileAPI.getNumberOfFiles().then(function (data) {
+                vm.totalItems = data;
                 console.log('Total number of files: ', data);
             });
         }
 
         function pageChanged() {
-            vm.getFilesByPage(vm.currentPage);
             console.log('Page changed!');
+            vm.getFilesByPage();
         }
     }
 
