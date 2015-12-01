@@ -14,14 +14,11 @@
 	function routeConfig($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('browse', {
-				url: '/browse',
+				url: '/',
 				templateUrl: 'app/page.browse/browse.html'
 			}).state('fileinfo', {
 				url: '/fileinfo',
 				templateUrl: 'app/page.fileinfo/fileinfo.html'
-			}).state('homepage', {
-				url: '/',
-				templateUrl: 'app/page.homepage/homepage.html'
 			});
 
 		$urlRouterProvider.otherwise('/');
