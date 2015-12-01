@@ -14,7 +14,8 @@
             getFileById: getFileById,
             getFilesByPage: getFilesByPage,
             getNumberOfFiles: getNumberOfFiles,
-            getTypeCategories: getTypeCategories
+            getTypeCategories: getTypeCategories,
+            uploadFile: uploadFile
         };
 
         return api;
@@ -25,8 +26,8 @@
             });
         }
 
-        function getFileById() {
-            return $http.get('/api/files/:id').then(function(result) {
+        function getFileById(id) {
+            return $http.get('/api/file/' + id).then(function(result) {
                 return result.data;
             });
         }
@@ -46,6 +47,20 @@
         function getTypeCategories() {
             return $http.get('/api/type_categories').then(function(result) {
                 return result.data;
+            });
+        }
+
+        function uploadFile(fileData, file) {
+            var fd = new FormData();
+            fd.append('fileInfo', fileData);
+            fd.append('file', file)
+            return $http.post('/api/file_upload', fd, {
+                headers: {
+                    'Content-Type': undefined
+                },
+                transformRequest: angular.identity
+            }).then(function(result) {
+               return result.data;
             });
         }
 
