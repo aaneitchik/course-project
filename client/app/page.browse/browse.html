@@ -1,6 +1,14 @@
 <div class="browse">
     <h1 class="heading">BROWSE</h1>
 
+    <div class="file-container">
+        <div class="row no-margin">
+            <div class="col-xs-12 col-md-6" ng-repeat="i in [1, 2, 3, 4]">
+                <file-card></file-card>
+            </div>
+        </div>
+    </div>
+
     <div class="pagination-container">
         <uib-pagination total-items="browse.totalItems" items-per-page="1" ng-model="browse.currentPage"
                         ng-change="browse.pageChanged()" max-size="browse.maxSize" class="pagination-sm" boundary-links="true"

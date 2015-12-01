@@ -19,6 +19,7 @@ html, body, .full-height {
 body {
   font-family: Lato-Medium;
   background-color: $bg-color;
+  color: $text-color;
 }
 
 .outer-container {
@@ -47,12 +48,16 @@ body {
   letter-spacing: 3.5px;
 
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 14px;
 }
 
 /*UTILITY CLASSES*/
 .no-padding {
   padding: 0;
+}
+
+.no-margin {
+  margin: 0;
 }
 
 /*PAGINATION*/
