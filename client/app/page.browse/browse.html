@@ -3,8 +3,8 @@
 
     <div class="file-container">
         <div class="row no-margin">
-            <div class="col-xs-12 col-md-6" ng-repeat="i in [1, 2, 3, 4]">
-                <file-card></file-card>
+            <div class="col-xs-12 col-md-6" ng-repeat="file in browse.fileList track by $index">
+                <file-card file="file"></file-card>
             </div>
         </div>
     </div>
