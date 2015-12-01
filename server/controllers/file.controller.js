@@ -18,14 +18,15 @@ function getFiles(res) {
 };
 
 function getFileById(res, id) {
-    File.findById(id, function(err, file) {
+    console.log('getting fil;e by id');
+    File.findById(id).exec(function(err, file) {
         if(err) {
             res.status(500).send(err);
         }
         else {
             res.json(file);
         }
-    })
+    });
 }
 
 function getFilesByPage(res, pageNumber, pageSize) {

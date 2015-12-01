@@ -89,3 +89,4 @@ node_modules
 #Added manually
 bower_components/
 dist/
+uploads/

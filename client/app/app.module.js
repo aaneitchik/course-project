@@ -5,6 +5,7 @@
         .module('libApp', [
             'ui.bootstrap',
             'ui.bootstrap.pagination',
-            'ui.router'
+            'ui.router',
+            'file-model'
         ]);
 })();

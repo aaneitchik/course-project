@@ -19,6 +19,10 @@ var fileModel = new Schema({
         type: String,
         required: true
     },
+    data: {
+        type: String,
+        default: true
+    },
     createdOn: {
         type: Date,
         default: Date.now
