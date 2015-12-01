@@ -10,7 +10,9 @@
 	function fileCard() {
 		var directive = {
 			restrict: 'E',
-			require: 'ngModel',
+			scope: {
+				file: '='
+			},
 			templateUrl: 'app/components/file-card/filecard.html'
 		};
 
