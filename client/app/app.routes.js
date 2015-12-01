@@ -9,14 +9,21 @@
         $stateProvider
             .state('browse', {
                 url: '/',
-                templateUrl: 'app/page.browse/browse.html',
                 controller: 'BrowseController',
-                controllerAs: 'browse'
+                controllerAs: 'browse',
+                templateUrl: 'app/page.browse/browse.html'
+            }).state('addfile', {
+                url: '/addfile',
+                controller: 'AddFileController',
+                controllerAs: 'addfile',
+                templateUrl: 'app/page.addfile/addfile.html'
             }).state('fileinfo', {
                 url: '/fileinfo/:id',
                 params: {
                     id: null
                 },
+                controller: 'FileinfoController',
+                controllerAs: 'fileinfo',
                 templateUrl: 'app/page.fileinfo/fileinfo.html'
             });
 
