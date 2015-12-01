@@ -10,6 +10,8 @@
 }
 
 $bg-color: #f7f7f7;
+$border-color: rgba(0, 0, 0, 0.3);
+$light-text-color: rgba(0, 0, 0, 0.5);
 $text-color: rgba(0, 0, 0, 0.7);
 
 html, body, .full-height {
@@ -90,4 +92,56 @@ body {
       color: black;
     }
   }
+}
+
+/*BUTTONS*/
+.default-btn {
+  border: 1px solid $border-color !important;
+  border-radius: 0px;
+
+  background-color: transparent;
+  color: $light-text-color !important;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  text-align: center;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+/*FORMS*/
+
+.material-input {
+  border: none;
+  background: white !important;
+}
+
+.material-input:focus, .material-input:valid {
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control {
+  border: none !important;
+  outline: 0 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+textarea {
+  resize: vertical;
 }
