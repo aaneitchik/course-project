@@ -13,7 +13,10 @@
                 controller: 'BrowseController',
                 controllerAs: 'browse'
             }).state('fileinfo', {
-                url: '/fileinfo',
+                url: '/fileinfo/:id',
+                params: {
+                    id: null
+                },
                 templateUrl: 'app/page.fileinfo/fileinfo.html'
             }).state('homepage', {
                 url: '/',

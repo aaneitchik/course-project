@@ -11,6 +11,7 @@
 
         var api = {
             getFiles: getFiles,
+            getFileById: getFileById,
             getFilesByPage: getFilesByPage,
             getNumberOfFiles: getNumberOfFiles,
             getTypeCategories: getTypeCategories
@@ -20,6 +21,12 @@
 
         function getFiles() {
             return $http.get('/api/files').then(function(result) {
+                return result.data;
+            });
+        }
+
+        function getFileById() {
+            return $http.get('/api/files/:id').then(function(result) {
                 return result.data;
             });
         }
