@@ -9,14 +9,12 @@
     /*@ngInject*/
     function BrowseController(fileAPI) {
         var vm = this;
-        var pageSize = 1;
-
         vm.fileList = [];
 
         //pagination
         vm.currentPage = 1;
         vm.maxSize = 5;
-        vm.totalItems = 4;
+        vm.pageSize = 10;
 
         vm.getFiles = getFiles;
         vm.getFilesByPage = getFilesByPage;
@@ -36,7 +34,7 @@
         }
 
         function getFilesByPage() {
-            fileAPI.getFilesByPage(vm.currentPage, pageSize).then(function (data) {
+            fileAPI.getFilesByPage(vm.currentPage, vm.pageSize).then(function (data) {
                 vm.fileList = angular.copy(data);
                 console.log('Files on page ' + vm.currentPage + ' received: ', data);
             });

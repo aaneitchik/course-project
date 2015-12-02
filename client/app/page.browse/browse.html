@@ -10,7 +10,7 @@
     </div>
 
     <div class="pagination-container">
-        <uib-pagination total-items="browse.totalItems" items-per-page="1" ng-model="browse.currentPage"
+        <uib-pagination total-items="browse.totalItems" items-per-page="vm.pageSize" ng-model="browse.currentPage"
                         ng-change="browse.pageChanged()" max-size="browse.maxSize" class="pagination-sm" boundary-links="true"
                         previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
                         last-text="&raquo;"></uib-pagination>
