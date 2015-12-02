@@ -9,11 +9,13 @@ $text-color: rgba(0, 0, 0, 0.7);
 .addfile {
   padding-right: 10px;
 
-  .title {
-    text-transform: uppercase !important;
+  #author {
+    margin-top: 20px;
+    border: 1px solid $border-color !important;
+    border-radius: 0px;
   }
 
-  #description {
+  #description, #shortDescription {
     width: 100% !important;
     margin-top: 20px;
     padding-top: 10px;
@@ -36,13 +38,14 @@ $text-color: rgba(0, 0, 0, 0.7);
 
   #loadFile {
     text-align: center;
+    margin-bottom: 20px;
 
     .default-btn {
       margin-top: 20px;
 
       font-family: BebasNeue-Book;
       font-size: 23px;
-      letter-spacing: 2.5px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       color: $text-color !important;
     }

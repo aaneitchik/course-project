@@ -3,12 +3,18 @@
   src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
 }
 
+
+@font-face {
+  font-family: BebasNeue-Regular;
+  src: url('/assets/fonts/bebas/BebasNeue-Regular.ttf');
+}
+
 $border-color: rgba(0, 0, 0, 0.4);
 $sidebar-bg-color: #ffffff;
 $text-color: rgba(0, 0, 0, 0.7);
 
 .sidebar {
-  padding: 10px 20px;
+  padding: 20px 20px;
 
   background-color: $sidebar-bg-color;
 
@@ -17,7 +23,8 @@ $text-color: rgba(0, 0, 0, 0.7);
   font-weight: 500;
 
   .heading {
-    color: black;
+    font-family: BebasNeue-Regular;
+    font-weight: 200;
   }
 
   .type {

@@ -12,11 +12,7 @@
 $bg-color: #f7f7f7;
 $border-color: rgba(0, 0, 0, 0.3);
 $light-text-color: rgba(0, 0, 0, 0.5);
-$text-color: rgba(0, 0, 0, 0.7);
-
-html, body, .full-height {
-  height: 100%;
-}
+$text-color: rgba(0, 0, 0, 0.6);
 
 body {
   font-family: Lato-Medium;
@@ -35,22 +31,30 @@ body {
   @media screen and (max-width: 770px) {
     display: none;
   }
-
 }
 
 .ui-view {
   margin-bottom: -9999px;
-  padding-bottom: -9999px;
-  background-color: white !important;
-}
+  padding-left: 30px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 9999px;
+  background-color: white !important;}
 
 /*HEADINGS*/
 .heading {
   font-family: BebasNeue-Book;
   letter-spacing: 3.5px;
-
-  margin-top: 10px;
+  margin-top: 0 !important;
   margin-left: 14px;
+}
+
+//for file titles
+.title {
+  margin-top: 0 !important;
+  font-family: BebasNeue-Book;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
 }
 
 /*UTILITY CLASSES*/

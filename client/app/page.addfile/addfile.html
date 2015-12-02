@@ -4,13 +4,22 @@
         <!--File title-->
         <h1 class="title">
             <input class="material-input" type="text" name="title" placeholder="Enter file name"
-                   ng-model="fileInfo.title" maxlength="50" required>
+                   ng-model="addfile.fileInfo.title" maxlength="50" required>
         </h1>
+
+        <!--Author-->
+        <input class="form-control material-input" name="author" id="author" placeholder="Author" ng-model="addfile.fileInfo.author" required>
+
+        <!--File short description-->
+        <textarea class="form-control material-input" name="description" rows="3" id="shortDescription"
+                  placeholder="Write short description here..."
+                  ng-model="addfile.fileInfo.shortDescription" maxlength="255"
+                  required></textarea>
 
         <!--File description-->
         <textarea class="form-control material-input" name="description" rows="10" id="description"
                   placeholder="Write your file description here..."
-                  ng-model="fileInfo.description" maxlength="4000"
+                  ng-model="addfile.fileInfo.description" maxlength="3000"
                   required></textarea>
 
         <!--Select category-->
@@ -21,20 +30,12 @@
         </div>
 
         <!--Upload file-->
-        <!--<div id="fileUpload" ng-controller="FileUploadController as upload">-->
-        <!--<button class="btn btn-file default-btn">-->
-        <!--<i class="fa fa-upload"></i> Upload file-->
-        <!--<input type="file" ng-file-select="upload.onFileSelect($files)">-->
-        <!--</button>-->
-        <!--<span class="filename">{{filesToUpload[0].name}}</span>-->
-        <!--</div>-->
-
         <div id="fileUpload">
             <button class="btn btn-file default-btn">
                 <i class="fa fa-upload"></i> Upload file
                 <input type="file" file-model="addfile.file">
             </button>
-            <span class="filename">{{filesToUpload[0].name}}</span>
+            <span class="filename">{{addfile.file.name}}</span>
         </div>
 
         <!--Load file to the lib-->
