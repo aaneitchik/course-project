@@ -52,8 +52,8 @@
 
         function uploadFile(fileData, file) {
             var fd = new FormData();
-            fd.append('fileInfo', fileData);
-            fd.append('file', file)
+            fd.append('fileInfo', JSON.stringify(fileData));
+            fd.append('file', file);
             return $http.post('/api/file_upload', fd, {
                 headers: {
                     'Content-Type': undefined

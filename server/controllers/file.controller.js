@@ -1,9 +1,34 @@
+var fs = require('fs');
+
 var File = require('../models/file.model');
 
+exports.addFile = addFile;
 exports.getFiles = getFiles;
 exports.getFileById = getFileById;
 exports.getFilesByPage = getFilesByPage;
 exports.getNumberOfFiles = getNumberOfFiles;
+
+//add file
+function addFile(res, fileInfo, file) {
+    var file = new File({
+        title: fileInfo.title,
+        author: fileInfo.author,
+        type: fileInfo.type,
+        shortDescription: fileInfo.shortDescription,
+        description: fileInfo.description,
+        file: base64_encode(file.destination, file.originalname),
+        filename: file.originalname
+    });
+    file.save(function(err) {
+        if(err) {
+            console.log(err);
+            res.status(500).send(err);
+        }
+        else {
+            res.status(200).send('File created successfully!');
+        }
+    });
+}
 
 //get all files
 function getFiles(res) {
@@ -15,10 +40,9 @@ function getFiles(res) {
             res.json(files);
         }
     });
-};
+}
 
 function getFileById(res, id) {
-    console.log('getting fil;e by id');
     File.findById(id).exec(function(err, file) {
         if(err) {
             res.status(500).send(err);
@@ -51,3 +75,13 @@ function getNumberOfFiles(res) {
         }
     });
 };
+
+////////////////////////////////////
+function base64_encode(destination, filepath) {
+    //need this prefix to donload from frontend
+    var prefix = "data:" + ";base64,";
+    // read binary data
+    var bitmap = fs.readFileSync(destination + '/' + filepath);
+    var base64 = new Buffer(bitmap, 'binary').toString('base64')
+    return prefix + base64;
+}

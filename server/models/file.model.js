@@ -15,13 +15,21 @@ var fileModel = new Schema({
         type: String,
         required: true
     },
+    shortDescription: {
+      type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true
     },
-    data: {
+    file: {
         type: String,
-        default: true
+        required: true
+    },
+    filename: {
+        type: String,
+        required: true
     },
     createdOn: {
         type: Date,
