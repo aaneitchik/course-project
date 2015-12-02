@@ -11,9 +11,14 @@
         var vm = this;
         vm.file = {};
 
+        vm.downloadFile = downloadFile;
         vm.getFileById = getFileById;
 
         vm.getFileById();
+
+        function downloadFile() {
+            $("#downloadBtn").attr("href", vm.file.file).attr("download", vm.file.filename);
+        }
 
         function getFileById() {
             fileAPI.getFileById($stateParams.id).then(function(data) {
