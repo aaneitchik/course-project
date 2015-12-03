@@ -1,5 +1,5 @@
 var express = require('express');
-var multer  = require('multer');
+var multer = require('multer');
 var fs = require('fs');
 
 var fileCtrl = require('./controllers/file.controller');
@@ -9,7 +9,7 @@ var fileRouter = express.Router();
 
 var storageConfig = require('../config/storage.config.js');
 
-var upload = multer({ storage: storageConfig });
+var upload = multer({storage: storageConfig});
 
 //get all files
 fileRouter.route('/files')
@@ -24,19 +24,27 @@ fileRouter.route('/files_number')
     });
 
 //get files by page
-fileRouter.route('/files/:page/:page_size')
+fileRouter.route('/files/:page/:page_size/:file_type')
     .get(function (req, res) {
         var pageNumber = req.params.page;
         var pageSize = req.params.page_size;
-        return fileCtrl.getFilesByPage(res, pageNumber, pageSize);
+        var fileType = req.params.file_type;
+        return fileCtrl.getFilesByPage(res, pageNumber, pageSize, fileType);
     });
 
 //get file by id
 fileRouter.route('/file/:id')
-    .get(function (req, res){
+    .get(function (req, res) {
         var id = req.params.id;
         console.log(id);
         return fileCtrl.getFileById(res, id);
+    });
+
+//dpwnload file
+fileRouter.route('/download_file/:id')
+    .get(function (req, res) {
+        var id = req.params.id;
+        return fileCtrl.downloadFile(res, id);
     });
 
 //get all categories
@@ -47,7 +55,7 @@ fileRouter.route('/type_categories')
 
 //load file to the lib
 fileRouter
-    .post('/file_upload', upload.single('file'), function(req, res) {
+    .post('/file_upload', upload.single('file'), function (req, res) {
         var fileInfo = JSON.parse(req.body.fileInfo);
         var file = req.file;
         return fileCtrl.addFile(res, fileInfo, file);

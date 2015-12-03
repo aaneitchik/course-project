@@ -23,12 +23,16 @@ var fileModel = new Schema({
         type: String,
         required: true
     },
-    file: {
+    filepath: {
         type: String,
         required: true
     },
     filename: {
         type: String,
+        required: true
+    },
+    fileExtension: {
+      type: String,
         required: true
     },
     createdOn: {
