@@ -1,7 +1,8 @@
 <div class="file-card" ui-sref="fileinfo({id: file._id})">
-	<p class="name"><span class="icon-course"><i class="fa fa-graduation-cap"></i></span>{{file.title}}</p>
+	<p class="name"><span ng-class="filecard.getIconClass(file.type)"><i ng-class="filecard.getFaClass(file.type)"></i></span>{{file.title}}</p>
+	<p class="author">{{file.author}}</p>
 
 	<p class="description">{{file.shortDescription}}</p>
 
-	<p class="format">.mp3</p>
+	<p class="format">.{{file.fileExtension}}</p>
 </div>
