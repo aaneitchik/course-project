@@ -32,8 +32,8 @@
             });
         }
 
-        function getFilesByPage(pageNumber, pageSize) {
-            return $http.get('/api/files/' + pageNumber + '/' + pageSize).then(function(result) {
+        function getFilesByPage(pageNumber, pageSize, fileType) {
+            return $http.get('/api/files/' + pageNumber + '/' + pageSize + '/' + fileType).then(function(result) {
                 return result.data;
             });
         }

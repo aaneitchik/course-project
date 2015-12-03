@@ -19,11 +19,13 @@
     }
 
     /*@ngInject*/
-    function SidebarController(fileAPI) {
+    function SidebarController($rootScope, $state, fileAPI) {
         var vm = this;
         vm.typeCategories = [];
 
         vm.getTypeCategories = getTypeCategories;
+        vm.isActiveState = isActiveState;
+        vm.selectCategory = selectCategory;
 
         vm.getTypeCategories();
 
@@ -32,6 +34,14 @@
                 vm.typeCategories = data;
                 console.log('Received categories:', data);
             });
+        }
+
+        function isActiveState(state) {
+            return $state.current.name === state;
+        }
+
+        function selectCategory(category) {
+            $rootScope.globalData.selectedCategory = category;
         }
     }
 

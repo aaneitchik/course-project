@@ -7,7 +7,7 @@
         .controller('BrowseController', BrowseController);
 
     /*@ngInject*/
-    function BrowseController(fileAPI) {
+    function BrowseController($scope, $rootScope, fileAPI) {
         var vm = this;
         vm.fileList = [];
 
@@ -15,15 +15,16 @@
         vm.currentPage = 1;
         vm.maxSize = 5;
         vm.pageSize = 10;
+        vm.selectedCategory = 'All';
 
         vm.getFiles = getFiles;
         vm.getFilesByPage = getFilesByPage;
         vm.getNumberOfFiles = getNumberOfFiles;
         vm.pageChanged = pageChanged;
+        vm.watchCategory = watchCategory;
 
-        vm.getFiles();
         vm.getNumberOfFiles();
-        vm.getFilesByPage(1);
+        vm.watchCategory();
 
         //////////////////////////
 
@@ -34,7 +35,7 @@
         }
 
         function getFilesByPage() {
-            fileAPI.getFilesByPage(vm.currentPage, vm.pageSize).then(function (data) {
+            fileAPI.getFilesByPage(vm.currentPage, vm.pageSize, vm.selectedCategory).then(function (data) {
                 vm.fileList = angular.copy(data);
                 console.log('Files on page ' + vm.currentPage + ' received: ', data);
             });
@@ -48,8 +49,14 @@
         }
 
         function pageChanged() {
-            console.log('Page changed!');
             vm.getFilesByPage();
+        }
+
+        function watchCategory() {
+            $rootScope.$watch('globalData.selectedCategory', function() {
+                vm.selectedCategory = $rootScope.globalData.selectedCategory;
+                vm.getFilesByPage();
+            });
         }
     }
 

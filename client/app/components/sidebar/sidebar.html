@@ -1,5 +1,8 @@
 <div class="sidebar full-height">
-    <p class="heading">FILE CATEGORIES</p>
-
-    <p class="type" ng-repeat="category in sidebar.typeCategories"><a href="">{{::category.type}}</a></p>
+    <div ng-if="sidebar.isActiveState('browse')">
+        <p class="heading">FILE CATEGORIES</p>
+        <p class="type" ng-repeat="category in sidebar.typeCategories">
+            <a href="" ng-click="sidebar.selectCategory(category.type)">{{::category.type}}</a>
+        </p>
+    </div>
 </div>

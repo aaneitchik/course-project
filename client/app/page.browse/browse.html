@@ -3,14 +3,17 @@
 
     <div class="file-container">
         <div class="row no-margin">
-            <div class="col-xs-12 col-md-6" ng-repeat="file in browse.fileList track by $index">
+            <div ng-if="browse.fileList.length != 0" class="col-xs-12 col-md-6" ng-repeat="file in browse.fileList track by $index">
                 <file-card file="file"></file-card>
+            </div>
+            <div ng-if="browse.fileList.length == 0">
+                <p class="text-center">Sorry, there are no files in this category.</p>
             </div>
         </div>
     </div>
 
     <div class="pagination-container">
-        <uib-pagination total-items="browse.totalItems" items-per-page="vm.pageSize" ng-model="browse.currentPage"
+        <uib-pagination total-items="browse.totalItems" items-per-page="browse.pageSize" ng-model="browse.currentPage"
                         ng-change="browse.pageChanged()" max-size="browse.maxSize" class="pagination-sm" boundary-links="true"
                         previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
                         last-text="&raquo;"></uib-pagination>
