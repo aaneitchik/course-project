@@ -24,7 +24,6 @@ function addFile(res, fileInfo, file) {
     });
     file.save(function (err) {
         if (err) {
-            console.log(err);
             res.status(500).send(err);
         }
         else {
@@ -58,7 +57,6 @@ function getFileById(res, id) {
 
 function getFilesByPage(res, pageNumber, pageSize, fileType) {
     var query = (fileType === 'undefined' || fileType === 'All') ? {} : {type: fileType};
-    console.log(query);
     File.paginate(query, {page: pageNumber, limit: pageSize, sortBy: {createdOn: -1}}, function (err, results) {
         if (err) {
             res.status(500).send(err);
@@ -70,8 +68,9 @@ function getFilesByPage(res, pageNumber, pageSize, fileType) {
 }
 
 //get total number of files
-function getNumberOfFiles(res) {
-    File.count(function (err, fileNumber) {
+function getNumberOfFiles(res, category) {
+    var query = (category === 'undefined' || category === 'All') ? {} : {type: category};
+    File.count(query, function (err, fileNumber) {
         if (err) {
             res.status(500).send(err);
         }
@@ -111,6 +110,5 @@ function base64_encode(destination, filepath) {
 
 function getFileExtension(filename) {
     var extension = filename.split('.');
-    console.log(extension[extension.length - 1]);
     return extension[extension.length - 1];
 }

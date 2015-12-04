@@ -38,8 +38,8 @@
             });
         }
 
-        function getNumberOfFiles() {
-            return $http.get('/api/files_number').then(function(result) {
+        function getNumberOfFiles(category) {
+            return $http.get('/api/files_number/' + category).then(function(result) {
                 return result.data;
             });
         }
@@ -60,7 +60,7 @@
                 },
                 transformRequest: angular.identity
             }).then(function(result) {
-               return result.data;
+               return result;
             });
         }
 

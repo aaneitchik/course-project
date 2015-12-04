@@ -14,7 +14,7 @@
         //pagination
         vm.currentPage = 1;
         vm.maxSize = 5;
-        vm.pageSize = 10;
+        vm.pageSize = 6;
         vm.selectedCategory = 'All';
 
         vm.getFiles = getFiles;
@@ -23,7 +23,7 @@
         vm.pageChanged = pageChanged;
         vm.watchCategory = watchCategory;
 
-        vm.getNumberOfFiles();
+        vm.getNumberOfFiles('All');
         vm.watchCategory();
 
         //////////////////////////
@@ -41,8 +41,8 @@
             });
         }
 
-        function getNumberOfFiles() {
-            fileAPI.getNumberOfFiles().then(function (data) {
+        function getNumberOfFiles(category) {
+            fileAPI.getNumberOfFiles(category).then(function (data) {
                 vm.totalItems = data;
                 console.log('Total number of files: ', data);
             });
@@ -55,6 +55,8 @@
         function watchCategory() {
             $rootScope.$watch('globalData.selectedCategory', function() {
                 vm.selectedCategory = $rootScope.globalData.selectedCategory;
+                vm.currentPage = 1;
+                vm.getNumberOfFiles(vm.selectedCategory);
                 vm.getFilesByPage();
             });
         }

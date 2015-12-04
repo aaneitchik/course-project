@@ -18,10 +18,12 @@ fileRouter.route('/files')
     });
 
 //get number of files
-fileRouter.route('/files_number')
+fileRouter.route('/files_number/:category')
     .get(function (req, res) {
-        return fileCtrl.getNumberOfFiles(res);
+        var category = req.params.category;
+        return fileCtrl.getNumberOfFiles(res, category);
     });
+
 
 //get files by page
 fileRouter.route('/files/:page/:page_size/:file_type')
@@ -36,7 +38,6 @@ fileRouter.route('/files/:page/:page_size/:file_type')
 fileRouter.route('/file/:id')
     .get(function (req, res) {
         var id = req.params.id;
-        console.log(id);
         return fileCtrl.getFileById(res, id);
     });
 
