@@ -24,6 +24,7 @@
         vm.typeCategories = [];
 
         vm.getTypeCategories = getTypeCategories;
+        vm.isActiveCategory = isActiveCategory;
         vm.isActiveState = isActiveState;
         vm.selectCategory = selectCategory;
 
@@ -34,6 +35,10 @@
                 vm.typeCategories = data;
                 console.log('Received categories:', data);
             });
+        }
+
+        function isActiveCategory(category) {
+            return category === $rootScope.globalData.selectedCategory;
         }
 
         function isActiveState(state) {

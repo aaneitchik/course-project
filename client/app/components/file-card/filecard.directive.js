@@ -55,7 +55,7 @@
 				case 'Digital courses':
 					return 'fa fa-graduation-cap';
 				case 'Documents':
-					return 'fa file-text-o';
+					return 'fa fa-file-text-o';
 				case 'Photos':
 					return 'fa fa-camera';
 				case 'Books':

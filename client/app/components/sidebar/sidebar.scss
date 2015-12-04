@@ -11,7 +11,7 @@
 
 $border-color: rgba(0, 0, 0, 0.4);
 $sidebar-bg-color: #ffffff;
-$text-color: rgba(0, 0, 0, 0.7);
+$text-color: rgba(0, 0, 0, 0.6);
 
 .sidebar {
   padding: 20px 20px;
@@ -27,14 +27,18 @@ $text-color: rgba(0, 0, 0, 0.7);
     font-weight: 200;
   }
 
+  hr {
+    margin: 7px 12px;
+  }
+
   .type {
-    margin-left: 20px;
+    margin-left: 12px;
 
     a {
       color: $text-color;
     }
 
-    a:hover {
+    a:hover, a:focus, a.selected-category {
       color: black;
       text-decoration: none;
     }

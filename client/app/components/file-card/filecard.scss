@@ -2,7 +2,7 @@ $secondary-color: rgba(0, 0, 0, 0.4);
 $light-text-color: rgba(0, 0, 0, 0.3);
 
 .file-card {
-  position: relative;
+  height: 220px;
 
   padding-top: 10px;
   padding-bottom: 5px;
@@ -13,6 +13,7 @@ $light-text-color: rgba(0, 0, 0, 0.3);
   transition: box-shadow 350ms;
 
   background-color: rgba(247, 247, 247, 0.7);
+  word-break: break-all;
 
   .name {
     margin-bottom: 3px;

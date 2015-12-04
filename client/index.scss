@@ -149,3 +149,17 @@ body {
 textarea {
   resize: vertical;
 }
+
+/*TOASTS*/
+#toasty {
+  .toast {
+    background-color: white !important;
+    //background-image: none !important;
+  }
+  .toast-text {
+    color: black !important;
+  }
+  .toasty-type-success {
+    //background-image: none !important;
+  }
+}
