@@ -6,6 +6,19 @@
             'ui.bootstrap',
             'ui.bootstrap.pagination',
             'ui.router',
-            'file-model'
-        ]);
+            'file-model',
+            'angular-toasty'
+        ])
+        .config(toastyConfig);
+
+    /*@ngInject*/
+    function toastyConfig(toastyConfigProvider) {
+        toastyConfigProvider.setConfig({
+            clickToClose: true,
+            timeout: 5000,
+            shake: false,
+            theme: 'material',
+            position: 'top-right'
+        });
+    }
 })();
