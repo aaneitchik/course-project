@@ -15,7 +15,7 @@
             terminal: true,
             priority: 1000,
             link: function link(scope, element, attrs) {
-                element.attr('uib-tooltip',  attrs.text);
+                element.attr('uib-tooltip',  attrs.formHelper);
                 element.attr('tooltip-trigger', 'focus');
                 element.attr('tooltip-placement', 'bottom');
                 element.addClass('form-helper');
