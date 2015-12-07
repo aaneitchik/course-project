@@ -15,6 +15,7 @@
             getFilesByPage: getFilesByPage,
             getNumberOfFiles: getNumberOfFiles,
             getTypeCategories: getTypeCategories,
+            findFiles: findFiles,
             uploadFile: uploadFile
         };
 
@@ -46,6 +47,12 @@
 
         function getTypeCategories() {
             return $http.get('/api/type_categories').then(function(result) {
+                return result.data;
+            });
+        }
+
+        function findFiles(searchQuery) {
+            return $http.post('/api/find_files', searchQuery).then(function(result) {
                 return result.data;
             });
         }

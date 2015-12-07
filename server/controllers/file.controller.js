@@ -5,6 +5,7 @@ var filePath = './uploads/';
 
 exports.addFile = addFile;
 exports.downloadFile = downloadFile;
+exports.findFiles = findFiles;
 exports.getFiles = getFiles;
 exports.getFileById = getFileById;
 exports.getFilesByPage = getFilesByPage;
@@ -15,7 +16,11 @@ function addFile(res, fileInfo, file) {
     var file = new File({
         title: fileInfo.title,
         author: fileInfo.author,
-        type: fileInfo.type,
+        tags: fileInfo.tags,
+        category: fileInfo.category,
+        subcategory: fileInfo.subcategory,
+        publicationYear: fileInfo.publicationYear,
+        publicationPlace: fileInfo.publicationPlace,
         shortDescription: fileInfo.shortDescription,
         description: fileInfo.description,
         filepath: file.destination + '/' + file.originalname,
@@ -30,6 +35,19 @@ function addFile(res, fileInfo, file) {
             res.status(200).send('File created successfully!');
         }
     });
+}
+
+//find files
+function findFiles(res, query) {
+    console.log(query);
+    File.find(query, function(err, results) {
+        if(err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.json(results);
+        }
+    })
 }
 
 //get all files
@@ -55,8 +73,8 @@ function getFileById(res, id) {
     });
 }
 
-function getFilesByPage(res, pageNumber, pageSize, fileType) {
-    var query = (fileType === 'undefined' || fileType === 'All') ? {} : {type: fileType};
+function getFilesByPage(res, pageNumber, pageSize, fileCategory) {
+    var query = (fileCategory === 'undefined' || fileCategory === 'All') ? {} : {category: fileCategory};
     File.paginate(query, {page: pageNumber, limit: pageSize, sortBy: {createdOn: -1}}, function (err, results) {
         if (err) {
             res.status(500).send(err);

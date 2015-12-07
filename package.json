@@ -32,6 +32,8 @@
     "http-proxy-middleware": "^0.9.0",
     "mongoose": "^4.2.7",
     "mongoose-paginate": "^4.2.0",
+    "mongoose-search-plugin": "^0.1.2",
+    "mongoose-text-search": "0.0.2",
     "multer": "^1.1.0"
   }
 }
