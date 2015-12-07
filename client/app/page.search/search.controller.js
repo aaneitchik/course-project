@@ -9,6 +9,7 @@
 	/*@ngInject*/
 	function SearchController($scope, fileAPI) {
 		var vm = this;
+		vm.contentLoaded = false;
 		vm.fileList = [];
 		vm.fileCategories = [];
 		vm.allowedSubcategories = [];
@@ -48,9 +49,12 @@
 
 		function findFiles() {
 			vm.addTags();
+			vm.contentLoaded = false;
 			fileAPI.findFiles(vm.searchQuery).then(function(data) {
 				vm.searchResults = data;
 				console.log('Found files: ', data);
+			}).finally(function() {
+				vm.contentLoaded = true;
 			});
 		}
 

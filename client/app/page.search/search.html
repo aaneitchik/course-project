@@ -59,7 +59,7 @@
 	<hr>
 
 	<!--Results-->
-	<div class="file-container">
+	<div class="file-container" ng-class="'content-loading': !search.contentLoaded">
 		<h1 class="heading" ng-if="search.searchResults.length !=0">SEARCH RESULTS</h1>
 
 		<div class="row no-margin">

@@ -1,6 +1,10 @@
 $border-color: rgba(0, 0, 0, 0.1);
 $text-color: rgba(0, 0, 0, 0.7);
 
+.file-container.loading-content {
+  display: none;
+}
+
 .search {
   height: 100%;
 

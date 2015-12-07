@@ -27,7 +27,8 @@ var paths = {
     sass: 'client/**/*.scss',
     scripts: 'client/**/*.js',
     html: 'client/**/*.html',
-    ttf: 'client/**/*.ttf'
+    ttf: 'client/**/*.ttf',
+    svg: 'client/**/*.svg'
 };
 
 var serverPort = 8080;
@@ -113,6 +114,11 @@ gulp.task('copy', ['clean'], function () {
     //Copy fonts
     gulp.src(paths.ttf)
         .pipe(gulp.dest(bases.dist));
+
+    //Copy loader
+    gulp.src(paths.svg)
+        .pipe(gulp.dest(bases.dist));
+
 });
 
 //Reload server on js files change

@@ -7,8 +7,9 @@
         .controller('FileinfoController', FileinfoController);
 
     /*@ngInject*/
-    function FileinfoController($http, $stateParams, fileAPI) {
+    function FileinfoController($stateParams, fileAPI) {
         var vm = this;
+        vm.contentLoaded = false;
         vm.file = {};
         vm.downloadLink = 'http://192.168.12.230:3000/api/download_file/';
 
@@ -22,9 +23,12 @@
         }
 
         function getFileById() {
+            vm.contentLoaded = false;
             fileAPI.getFileById($stateParams.id).then(function(data) {
                 vm.file = angular.copy(data);
                 console.log('File received: ', data);
+            }).finally(function() {
+                vm.contentLoaded = true;
             });
         }
     }

@@ -7,8 +7,9 @@
         .controller('BrowseController', BrowseController);
 
     /*@ngInject*/
-    function BrowseController($scope, $rootScope, fileAPI) {
+    function BrowseController($rootScope, fileAPI) {
         var vm = this;
+        vm.contentLoaded = false;
         vm.fileList = [];
 
         //pagination
@@ -35,9 +36,12 @@
         }
 
         function getFilesByPage() {
+            vm.contentLoaded = false;
             fileAPI.getFilesByPage(vm.currentPage, vm.pageSize, vm.selectedCategory).then(function (data) {
                 vm.fileList = angular.copy(data);
                 console.log('Files on page ' + vm.currentPage + ' received: ', data);
+            }).finally(function() {
+                vm.contentLoaded = true;
             });
         }
 
