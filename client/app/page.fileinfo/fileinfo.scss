@@ -10,7 +10,7 @@
 
 $border-color: rgba(0, 0, 0, 0.1);
 $light-text-color: rgba(0, 0, 0, 0.5);
-$text-color: rgba(0, 0, 0, 0.6);
+$text-color: rgba(0, 0, 0, 0.7);
 
 .fileinfo {
 
@@ -27,6 +27,11 @@ $text-color: rgba(0, 0, 0, 0.6);
     margin-top: 7px;
     margin-bottom: 6px;
     color: $text-color;
+  }
+
+  .tag {
+    margin-left: 6px;
+    margin-right: 3px;
   }
 
   .value {

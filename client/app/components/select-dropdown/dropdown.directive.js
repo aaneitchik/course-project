@@ -10,9 +10,10 @@
         var directive = {
             restrict: 'E',
             scope: {
-                title: '@',
+                title: '=',
                 items: '=',
-                selectedItem: '='
+                selectedItem: '=',
+                ngModel: '='
             },
             controller: SelectDropdownController,
             controllerAs: 'select',
@@ -28,7 +29,11 @@
         vm.selectItem = selectItem;
 
         function selectItem(item) {
-            $scope.selectedItem = item;
+            $scope.selectedItem = item.type || item;
+            //change subcategories if this is category dropdown
+            if(item.type) {
+                $scope.ngModel = item.subcategories;
+            }
         }
     }
 

@@ -7,11 +7,14 @@
         .controller('AddFileController', AddFileController);
 
     /*@ngInject*/
-    function AddFileController($state, fileAPI, toasty) {
+    function AddFileController($state, fileAPI, msgService) {
         var vm = this;
         vm.fileInfo = {};
         vm.fileCategories = [];
+        vm.allowedSubcategories = [];
+        vm.tagList = [];
 
+        vm.addTags = addTags;
         vm.getFileCategories = getFileCategories;
         vm.uploadFile = uploadFile;
 
@@ -21,14 +24,22 @@
 
         vm.getFileCategories();
 
+        function addTags() {
+            vm.fileInfo.tags = [];
+            vm.tagList.forEach(function(tag) {
+                vm.fileInfo.tags.push(tag.text);
+            });
+        }
+
         function getFileCategories() {
             fileAPI.getTypeCategories().then(function(data) {
                 vm.fileCategories = data;
+                console.log(vm.fileCategories);
             });
         }
 
         function isCategorySelected() {
-            return !!vm.fileInfo.type;
+            return !!vm.fileInfo.category;
         }
 
         function isFileUploaded() {
@@ -37,27 +48,19 @@
 
         function uploadFile() {
             if(!isCategorySelected()) {
-                toasty.error({
-                    msg: 'You must select a category!'
-                });
+                msgService.error('You must select a category!');
                 return;
             }
             if(!isFileUploaded()) {
-                toasty.error({
-                    msg: 'You must upload a file!'
-                });
+                msgService.error('You must upload a file!');
                 return;
             }
-
-            fileAPI.uploadFile(vm.fileInfo, vm.file).then(function(result) {
-                toasty.success({
-                    msg: 'File uploaded successfully!'
-                });
+            vm.addTags();
+            fileAPI.uploadFile(vm.fileInfo, vm.file).then(function() {
+                msgService.success('File uploaded successfully!');
                 $state.go('browse');
-            }, function(result) {
-                toasty.error({
-                    msg: 'Sorry, there was en error on server.'
-                });
+            }, function() {
+                msgService.error('Sorry, there was an error on server.');
             });
         }
     }

@@ -6,11 +6,15 @@
         {{fileinfo.file.shortDescription}}
     </div>
 
+    <p class="field"><span class="value">{{fileinfo.file.publicationPlace}}, 2013</span></p>
+
     <p class="field">Author: <span class="value">{{fileinfo.file.author}}</span></p>
 
-    <p class="field">Category: <span class="value">{{fileinfo.file.type}}</span></p>
+    <p class="field">Category: <span class="value">{{fileinfo.file.category}}</span></p>
 
     <p class="field">Format: <span class="value">{{fileinfo.file.fileExtension}}</span></p>
+
+    <p class="field">Tags:  <span class="value tag" ng-repeat="tag in fileinfo.file.tags">#{{tag}}</span></p>
 
     <div id="description">
         {{fileinfo.file.description}}

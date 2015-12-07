@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 var mongoosePaginate = require('mongoose-paginate');
+var Schema = mongoose.Schema;
+var searchPlugin = require('mongoose-search-plugin');
+var textSearch = require('mongoose-text-search');
 
 var fileModel = new Schema({
     title: {
@@ -11,9 +13,27 @@ var fileModel = new Schema({
         type: String,
         required: true
     },
-    type: {
+    tags: {
+        type: Array,
+        default: []
+    },
+    category: {
         type: String,
-        required: true
+        required: true,
+        default: 'Other'
+    },
+    subcategory: {
+        type: String,
+        required: true,
+        default: 'Other'
+    },
+    publicationPlace: {
+      type: String
+    },
+    publicationYear: {
+        type: Number,
+        min: 1000,
+        max: 2100
     },
     shortDescription: {
       type: String,
@@ -42,5 +62,8 @@ var fileModel = new Schema({
 });
 
 fileModel.plugin(mongoosePaginate);
+fileModel.plugin(searchPlugin, {
+   fields:['title', 'author', 'shortDescription', 'description', 'fileExtension', 'category', 'subcategory', 'publicationPlace']
+});
 
 module.exports = mongoose.model('File', fileModel);

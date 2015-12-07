@@ -5,7 +5,7 @@
         </button>
         <ul class="uib-dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
             <li role="menuitem" ng-repeat="item in items track by $index">
-                <a href="" ng-click="select.selectItem(item.type)">{{item.type}}</a>
+                <a href="" ng-click="select.selectItem(item)">{{item.type || item}}</a>
             </li>
         </ul>
     </div>

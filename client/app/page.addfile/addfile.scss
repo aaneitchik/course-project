@@ -9,7 +9,11 @@ $text-color: rgba(0, 0, 0, 0.7);
 .addfile {
   padding-right: 10px;
 
-  #author {
+  #title {
+    width: 90%;
+  }
+
+  #author, #publicationYear, #publicationPlace {
     margin-top: 20px;
     border: 1px solid $border-color !important;
     border-radius: 0px;
@@ -24,12 +28,16 @@ $text-color: rgba(0, 0, 0, 0.7);
     border-radius: 0px;
   }
 
-  #select-dropdown {
+  #select-category, #select-subcategory {
     margin-top: 20px;
   }
 
   #fileUpload {
     margin-top: 20px;
+  }
+
+  #tags {
+    margin-top: 10px;
   }
 
   .filename {

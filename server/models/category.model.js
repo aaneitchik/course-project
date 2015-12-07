@@ -5,6 +5,10 @@ var category = new Schema({
     type: {
         type: String,
         required: true
+    },
+    subcategories: {
+        type: Array,
+        default: ["Other"]
     }
 });
 

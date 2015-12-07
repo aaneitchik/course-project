@@ -1,12 +1,19 @@
-<div class="sidebar full-height"ng-if="sidebar.isActiveState('browse')">
-    <div >
-        <p class="heading">FILE CATEGORIES</p>
-        <p class="type">
-            <a href="" ng-class="{'selected-category': sidebar.isActiveCategory('All')}" ng-click="sidebar.selectCategory('All')">All</a>
-        </p>
-        <hr>
-        <p class="type" ng-repeat="category in sidebar.typeCategories">
-            <a href="" ng-class="{'selected-category': sidebar.isActiveCategory(category.type)}" ng-click="sidebar.selectCategory(category.type)">{{::category.type}}</a>
-        </p>
-    </div>
+<div class="sidebar full-height" ng-if="sidebar.isActiveState('browse')">
+	<div>
+		<p class="heading">FILE CATEGORIES</p>
+
+		<p class="type">
+			<a href="" ng-class="{'selected-category': sidebar.isActiveCategory('All')}"
+			   ng-click="sidebar.selectCategory('All')">All</a>
+		</p>
+		<hr>
+		<div class="type" ng-repeat="category in sidebar.typeCategories">
+			<a href="" ng-class="{'selected-category': sidebar.isActiveCategory(category.type)}"
+			   ng-click="sidebar.selectCategory(category.type)">{{::category.type}}</a>
+
+		<span uib-collapse="!sidebar.isActiveCategory(category.type)">
+			<p class="subcategory" href="" ng-repeat="item in category.subcategories"> - {{item}}</p>
+		</span>
+		</div>
+	</div>
 </div>

@@ -7,7 +7,8 @@
             'ui.bootstrap.pagination',
             'ui.router',
             'file-model',
-            'angular-toasty'
+            'angular-toasty',
+            'ngTagsInput'
         ])
         .config(toastyConfig);
 
