@@ -25,6 +25,11 @@
                 controller: 'FileinfoController',
                 controllerAs: 'fileinfo',
                 templateUrl: 'app/page.fileinfo/fileinfo.html'
+            }).state('search', {
+                url: '/search',
+                controller: 'SearchController',
+                controllerAs: 'search',
+                templateUrl: 'app/page.search/search.html'
             });
 
         $urlRouterProvider.otherwise('/');

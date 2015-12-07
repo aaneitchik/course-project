@@ -1,0 +1,59 @@
+$border-color: rgba(0, 0, 0, 0.1);
+$text-color: rgba(0, 0, 0, 0.7);
+
+.search {
+  height: 100%;
+
+  form {
+    margin-left: 13px;
+  }
+
+  #title, #author {
+    margin-top: 20px;
+  }
+
+  #publicationYear, #publicationPlace {
+    margin-top: 6px;
+  }
+
+  #title, #author, #publicationYear, #publicationPlace {
+    margin-right: 8px;
+    border: 1px solid $border-color !important;
+    border-radius: 0;
+  }
+
+  #select-category, #select-subcategory {
+    margin-top: 20px;
+
+    select-dropdown {
+      margin-left: 8px !important;
+    }
+  }
+
+  #search {
+    text-align: center;
+
+    .default-btn {
+      margin-top: 20px;
+
+      font-family: BebasNeue-Book;
+      font-size: 23px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: $text-color !important;
+    }
+  }
+
+  .file-container {
+    margin-bottom: 20px;
+  }
+
+}
+.search-menu {
+  padding-bottom: 10px;
+
+  .row {
+    margin-left: 4px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,83 @@
+<div class="search">
+	<h1 class="heading">SEARCH</h1>
+
+	<!--Search form-->
+	<div class="search-menu">
+		<form name="searchForm" class="form-inline validation" novalidate>
+
+			<div class="row">
+				<input type="text" class="form-control material-input" name="title" id="title" placeholder="Title"
+					   ng-model="search.searchQuery.title">
+				<input type="text" class="form-control material-input" name="author" id="author" placeholder="Author"
+					   ng-model="search.searchQuery.author">
+			</div>
+
+			<div class="row">
+				<tags-input class="bootstrap" ng-model="search.tagList">
+				</tags-input>
+			</div>
+
+			<!--Select subcategory-->
+			<div class="row" id="select-category">
+				<p><span>Category:</span>
+					<select-dropdown title="search.searchQuery.category || 'Select category'"
+									 items="search.fileCategories"
+									 selected-item="search.searchQuery.category"
+									 ng-model="search.allowedSubcategories"
+									 ng-change="search.clearSubcategory()"></select-dropdown>
+				</p>
+			</div>
+
+			<!--Select subcategory-->
+			<div class="row" ng-if="search.searchQuery.category" id="select-subcategory">
+				<p>Subcategory:
+					<select-dropdown title="search.searchQuery.subcategory || 'Select subcategory'"
+									 items="search.allowedSubcategories"
+									 selected-item="search.searchQuery.subcategory"></select-dropdown>
+				</p>
+			</div>
+
+			<!--If Documents, set publication place and year-->
+			<div class="row" ng-if="search.searchQuery.category === 'Documents'">
+				<input type="text" class="form-control material-input" name="publicationPlace" id="publicationPlace"
+					   placeholder="Place of publication"
+					   ng-model="search.searchQuery.publicationPlace">
+				<input type="number" class="form-control material-input" name="publicationYear" id="publicationYear"
+					   placeholder="Year of publication"
+					   ng-model="search.searchQuery.publicationYear">
+			</div>
+
+			<div id="search">
+				<button class="btn default-btn" id="searchBtn" ng-click="search.findFiles()">
+					SEARCH
+				</button>
+			</div>
+
+		</form>
+	</div>
+
+	<hr>
+
+	<!--Results-->
+	<div class="file-container">
+		<h1 class="heading" ng-if="search.searchResults.length !=0">SEARCH RESULTS</h1>
+
+		<div class="row no-margin">
+			<div ng-if="search.searchResults.length != 0" class="col-xs-12 col-md-6"
+				 ng-repeat="file in search.searchResults track by $index">
+				<file-card file="file"></file-card>
+			</div>
+			<div ng-if="search.searchResults.length == 0">
+				<p class="text-center">Sorry, no files found</p>
+			</div>
+		</div>
+	</div>
+
+	<!--Pagination-->
+	<!--<div class="pagination-container">-->
+	<!--<uib-pagination total-items="browse.totalItems" items-per-page="browse.pageSize" ng-model="browse.currentPage"-->
+	<!--ng-change="browse.pageChanged()" max-size="browse.maxSize" class="pagination-sm" boundary-links="true"-->
+	<!--previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"-->
+	<!--last-text="&raquo;"></uib-pagination>-->
+</div>
+</div>
