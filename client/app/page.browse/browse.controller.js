@@ -17,6 +17,7 @@
         vm.maxSize = 5;
         vm.pageSize = 6;
         vm.selectedCategory = 'All';
+        vm.selectedSubcategory = 'All';
 
         vm.getFiles = getFiles;
         vm.getFilesByPage = getFilesByPage;
@@ -37,7 +38,7 @@
 
         function getFilesByPage() {
             vm.contentLoaded = false;
-            fileAPI.getFilesByPage(vm.currentPage, vm.pageSize, vm.selectedCategory).then(function (data) {
+            fileAPI.getFilesByPage(vm.currentPage, vm.pageSize, vm.selectedCategory, vm.selectedSubcategory).then(function (data) {
                 vm.fileList = angular.copy(data);
                 console.log('Files on page ' + vm.currentPage + ' received: ', data);
             }).finally(function() {
@@ -59,6 +60,7 @@
         function watchCategory() {
             $rootScope.$watch('globalData.selectedCategory', function() {
                 vm.selectedCategory = $rootScope.globalData.selectedCategory;
+                vm.selectedSubcategory = $rootScope.globalData.selectedSubcategory;
                 vm.currentPage = 1;
                 vm.getNumberOfFiles(vm.selectedCategory);
                 vm.getFilesByPage();

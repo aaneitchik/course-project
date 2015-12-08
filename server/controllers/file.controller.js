@@ -73,8 +73,20 @@ function getFileById(res, id) {
     });
 }
 
-function getFilesByPage(res, pageNumber, pageSize, fileCategory) {
-    var query = (fileCategory === 'undefined' || fileCategory === 'All') ? {} : {category: fileCategory};
+function getFilesByPage(res, pageNumber, pageSize, fileCategory, fileSubcategory) {
+    var query;
+    if(fileCategory === 'undefined' || fileCategory === 'All') {
+        query = {};
+    }
+    else {
+        if(fileSubcategory === 'All') {
+            query = {category: fileCategory};
+        }
+        else {
+            query = {category: fileCategory, subcategory: fileSubcategory};
+        }
+    }
+    var query = (fileCategory === 'undefined' || fileCategory === 'All') ? {} : {category: fileCategory, subcategory: fileSubcategory};
     File.paginate(query, {page: pageNumber, limit: pageSize, sortBy: {createdOn: -1}}, function (err, results) {
         if (err) {
             res.status(500).send(err);

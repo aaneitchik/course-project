@@ -26,12 +26,13 @@ fileRouter.route('/files_number/:category')
 
 
 //get files by page
-fileRouter.route('/files/:page/:page_size/:file_type')
+fileRouter.route('/files/:page/:page_size/:file_category/:file_subcategory')
 	.get(function (req, res) {
 		var pageNumber = req.params.page;
 		var pageSize = req.params.page_size;
-		var fileType = req.params.file_type;
-		return fileCtrl.getFilesByPage(res, pageNumber, pageSize, fileType);
+		var category = req.params.file_category;
+		var subcategory = req.params.file_subcategory;
+		return fileCtrl.getFilesByPage(res, pageNumber, pageSize, category, subcategory);
 	});
 
 //get file by id

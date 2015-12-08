@@ -33,8 +33,8 @@
             });
         }
 
-        function getFilesByPage(pageNumber, pageSize, fileType) {
-            return $http.get('/api/files/' + pageNumber + '/' + pageSize + '/' + fileType).then(function(result) {
+        function getFilesByPage(pageNumber, pageSize, fileCategory, fileSubcategory) {
+            return $http.get('/api/files/' + pageNumber + '/' + pageSize + '/' + fileCategory + '/' + fileSubcategory).then(function(result) {
                 return result.data;
             });
         }
