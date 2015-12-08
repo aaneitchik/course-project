@@ -18,10 +18,11 @@ fileRouter.route('/files')
 	});
 
 //get number of files
-fileRouter.route('/files_number/:category')
+fileRouter.route('/files_number/:category/:subcategory')
 	.get(function (req, res) {
 		var category = req.params.category;
-		return fileCtrl.getNumberOfFiles(res, category);
+		var subcategory = req.params.subcategory;
+		return fileCtrl.getNumberOfFiles(res, category, subcategory);
 	});
 
 

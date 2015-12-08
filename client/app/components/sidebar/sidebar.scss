@@ -12,6 +12,7 @@
 $border-color: rgba(0, 0, 0, 0.4);
 $sidebar-bg-color: #ffffff;
 $text-color: rgba(0, 0, 0, 0.6);
+$subcategory-color: rgba (0, 0, 0, 0.7);
 
 .sidebar {
   padding: 20px 20px;
@@ -42,12 +43,22 @@ $text-color: rgba(0, 0, 0, 0.6);
       color: black;
       text-decoration: none;
     }
+
+    a.subcategory:hover, a.subcategory:focus, a.selected-subcategory {
+      color: $subcategory-color;
+    }
+
   }
 
   .subcategory {
-    //margin-left: 15px;
     margin-bottom: 5px;
     font-size: 18px;
     color: $border-color;
+  }
+
+  .subcategories {
+    p {
+      margin-bottom: 0;
+    }
   }
 }

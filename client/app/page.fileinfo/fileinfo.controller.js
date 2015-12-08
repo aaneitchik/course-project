@@ -18,6 +18,8 @@
 
         vm.getFileById();
 
+        //////////////////////////////////////////
+
         function downloadFile() {
             $("#downloadBtn").attr("href", vm.downloadLink + vm.file._id).attr("download", vm.file.filename);
         }

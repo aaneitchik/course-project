@@ -26,7 +26,9 @@
         vm.getTypeCategories = getTypeCategories;
         vm.isActiveCategory = isActiveCategory;
         vm.isActiveState = isActiveState;
+        vm.isActiveSubcategory = isActiveSubcategory;
         vm.selectCategory = selectCategory;
+        vm.selectSubcategory = selectSubcategory;
 
         vm.getTypeCategories();
 
@@ -41,12 +43,21 @@
             return category === $rootScope.globalData.selectedCategory;
         }
 
+        function isActiveSubcategory(subcategory) {
+            return subcategory === $rootScope.globalData.selectedSubcategory;
+        }
+
         function isActiveState(state) {
             return $state.current.name === state;
         }
 
         function selectCategory(category) {
             $rootScope.globalData.selectedCategory = category;
+            $rootScope.globalData.selectedSubcategory = 'All';
+        }
+
+        function selectSubcategory(subcategory) {
+            $rootScope.globalData.selectedSubcategory = subcategory;
         }
     }
 

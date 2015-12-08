@@ -38,10 +38,10 @@ function addFile(res, fileInfo, file) {
 }
 
 //find files
-function findFiles(res, query) {
-    console.log(query);
-    File.find(query, function(err, results) {
-        if(err) {
+function findFiles(res, searchQuery) {
+    var query = constructSearchQuery(searchQuery);
+    File.find(query, function (err, results) {
+        if (err) {
             res.status(500).send(err);
         }
         else {
@@ -73,20 +73,8 @@ function getFileById(res, id) {
     });
 }
 
-function getFilesByPage(res, pageNumber, pageSize, fileCategory, fileSubcategory) {
-    var query;
-    if(fileCategory === 'undefined' || fileCategory === 'All') {
-        query = {};
-    }
-    else {
-        if(fileSubcategory === 'All') {
-            query = {category: fileCategory};
-        }
-        else {
-            query = {category: fileCategory, subcategory: fileSubcategory};
-        }
-    }
-    var query = (fileCategory === 'undefined' || fileCategory === 'All') ? {} : {category: fileCategory, subcategory: fileSubcategory};
+function getFilesByPage(res, pageNumber, pageSize, category, subcategory) {
+    var query = constructCategoryQuery(category, subcategory);
     File.paginate(query, {page: pageNumber, limit: pageSize, sortBy: {createdOn: -1}}, function (err, results) {
         if (err) {
             res.status(500).send(err);
@@ -98,8 +86,8 @@ function getFilesByPage(res, pageNumber, pageSize, fileCategory, fileSubcategory
 }
 
 //get total number of files
-function getNumberOfFiles(res, category) {
-    var query = (category === 'undefined' || category === 'All') ? {} : {type: category};
+function getNumberOfFiles(res, category, subcategory) {
+    var query = constructCategoryQuery(category, subcategory);
     File.count(query, function (err, fileNumber) {
         if (err) {
             res.status(500).send(err);
@@ -136,6 +124,47 @@ function base64_encode(destination, filepath) {
     var bitmap = fs.readFileSync(destination + '/' + filepath);
     var base64 = new Buffer(bitmap, 'binary').toString('base64');
     return prefix + base64;
+}
+
+function constructCategoryQuery(category, subcategory) {
+    if (category === 'All') {
+        query = {};
+    }
+    else {
+        if (subcategory === 'All') {
+            query = {category: category};
+        }
+        else {
+            query = {category: category, subcategory: subcategory};
+        }
+    }
+}
+
+function constructSearchQuery(searchQuery) {
+    var query = {};
+    Object.keys(searchQuery).forEach(function (key) {
+        if (key === 'category') {
+            if (searchQuery[key] === 'All') {
+                return;
+            }
+        }
+        if (key === 'subcategory') {
+            if (searchQuery['category'] === 'All') {
+                return;
+            }
+            else {
+                query['category'] = searchQuery['category'];
+                if (!(searchQuery[key] === 'All')) {
+                    query[key] = searchQuery[key];
+                }
+                return;
+            }
+        }
+        if (!(!searchQuery[key] || searchQuery[key] === "0" || ((typeof searchQuery[key] === 'string' || searchQuery[key] instanceof String) && !searchQuery[key].trim()))) {
+            query[key] = {$regex: new RegExp(searchQuery[key], 'i')};
+        }
+    });
+    return query;
 }
 
 function getFileExtension(filename) {

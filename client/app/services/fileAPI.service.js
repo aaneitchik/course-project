@@ -39,8 +39,8 @@
             });
         }
 
-        function getNumberOfFiles(category) {
-            return $http.get('/api/files_number/' + category).then(function(result) {
+        function getNumberOfFiles(category, subcategory) {
+            return $http.get('/api/files_number/' + category +'/' + subcategory).then(function(result) {
                 return result.data;
             });
         }
