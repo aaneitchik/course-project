@@ -29,6 +29,9 @@
                 url: '/search',
                 controller: 'SearchController',
                 controllerAs: 'search',
+                params: {
+                  tag: null
+                },
                 templateUrl: 'app/page.search/search.html'
             });
 

@@ -1,14 +1,21 @@
+@mixin flex-display {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 $secondary-color: rgba(0, 0, 0, 0.4);
+$tags-color: rgba(0, 0, 0, 0.5);
 $light-text-color: rgba(0, 0, 0, 0.3);
 
 .file-card {
-  height: 220px;
 
+  width: 100%;
   padding-top: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 12px;
   padding-left: 15px;
-  padding-right: 15px;
-  margin: 8px 0;
+  padding-right: 25px;
+  margin: 8px;
 
   transition: box-shadow 350ms;
 
@@ -35,8 +42,17 @@ $light-text-color: rgba(0, 0, 0, 0.3);
     color: $secondary-color;
   }
 
-  .author, .description, .format {
+  .tags {
+    margin-top: 10px;
+    color: $tags-color;
+  }
+
+  .author, .description, .format, .tags {
     margin-left: 34px;
+  }
+
+  .tag {
+    margin-right: 7px;
   }
 
   /*ICONS*/

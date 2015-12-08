@@ -1,4 +1,4 @@
-<div class="fileinfo" ng-class="'content-loading': !fileinfo.contentLoaded">
+<div class="fileinfo" ng-class="{'content-loading': !fileinfo.contentLoaded}">
 
     <h1 class="title">{{fileinfo.file.title}}</h1>
 
@@ -6,7 +6,7 @@
         {{fileinfo.file.shortDescription}}
     </div>
 
-    <p class="field"><span class="value">{{fileinfo.file.publicationPlace}}, 2013</span></p>
+    <p class="field"><span class="value">{{fileinfo.file.publicationPlace}} {{fileinfo.file.publicationYear}}</span></p>
 
     <p class="field">Author: <span class="value">{{fileinfo.file.author}}</span></p>
 
@@ -14,7 +14,7 @@
 
     <p class="field">Format: <span class="value">{{fileinfo.file.fileExtension}}</span></p>
 
-    <p class="field">Tags:  <span class="value tag" ng-repeat="tag in fileinfo.file.tags">#{{tag}}</span></p>
+    <p class="field">Tags:  <span class="value tag" ng-repeat="tag in fileinfo.file.tags"><a ui-sref="search({tag: tag})">#{{tag}}</a></span></p>
 
     <div id="description">
         {{fileinfo.file.description}}

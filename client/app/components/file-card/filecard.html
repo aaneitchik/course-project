@@ -4,5 +4,7 @@
 
 	<p class="description">{{file.shortDescription}}</p>
 
+	<p class="tags"><span class="tag" ng-repeat="tag in file.tags">#{{tag}}</span></p>
+
 	<p class="format">.{{file.fileExtension}}</p>
 </div>

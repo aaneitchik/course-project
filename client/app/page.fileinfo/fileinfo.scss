@@ -13,7 +13,9 @@ $light-text-color: rgba(0, 0, 0, 0.5);
 $text-color: rgba(0, 0, 0, 0.7);
 
 .fileinfo.content-loading {
-  display: none;
+  * {
+    display: none;
+  }
 }
 
 .fileinfo {
