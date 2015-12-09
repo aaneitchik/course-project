@@ -1,0 +1,145 @@
+@mixin flex-display {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+$secondary-color: rgba(0, 0, 0, 0.4);
+$tags-color: rgba(0, 0, 0, 0.5);
+$light-text-color: rgba(0, 0, 0, 0.3);
+
+.file-card {
+
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 25px;
+  margin: 8px;
+
+  transition: box-shadow 350ms;
+
+  background-color: rgba(247, 247, 247, 0.7);
+  word-break: break-all;
+
+  .name {
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    color: black;
+  }
+
+  .author {
+    text-transform: uppercase;
+    font-size: 10px;
+    color: $light-text-color;
+  }
+
+  .format {
+    margin-top: 10px;
+    margin-bottom: 4px;
+
+    font-size: 13px;
+    color: $secondary-color;
+  }
+
+  .tags {
+    margin-top: 10px;
+    color: $tags-color;
+  }
+
+  .author, .description, .format, .tags {
+    margin-left: 34px;
+  }
+
+  .tag {
+    margin-right: 7px;
+  }
+
+  /*ICONS*/
+
+  .icon-course {
+     margin-right: 7px;
+     padding-top: 2px;
+     padding-bottom: 3px;
+     padding-left: 3px;
+     padding-right: 3px;
+
+     font-size: 20px;
+
+     background-color: #9F0251;
+     color: white !important;
+   }
+
+  .icon-book {
+    margin-right: 7px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 5px;
+
+    font-size: 20px;
+
+    background-color: #97C30A;
+    color: white !important;
+  }
+
+  .icon-doc {
+    margin-right: 7px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 5px;
+
+    font-size: 20px;
+
+    background-color: #FF9E00;
+    color: white !important;
+  }
+
+  .icon-music {
+    margin-right: 7px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 7px;
+
+    font-size: 20px;
+
+    background-color: #CE0000;
+    color: white !important;
+  }
+
+  .icon-photo {
+    margin-right: 7px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 5px;
+
+    font-size: 20px;
+
+    background-color: #129793;
+    color: white !important;
+  }
+
+  .icon-video {
+    margin-right: 7px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    font-size: 20px;
+
+    background-color: #154890;
+    color: white !important;
+  }
+
+}
+
+.file-card:hover {
+  box-shadow:  0 3px 3px rgba(0,0,0,0.1), 0 3px 4px rgba(0,0,0,0.15);
+  transitionY: translateY(-5px);
+
+  cursor: pointer;
+}

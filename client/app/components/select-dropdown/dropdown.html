@@ -1,0 +1,15 @@
+<span class="select-dropdown">
+    <div class="btn-group" uib-dropdown dropdown-append-to-body uib-keyboard-nav>
+        <button type="button" class="btn default-btn" uib-dropdown-toggle>
+            {{title}} <span class="caret"></span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li role="menuitem">
+                <a href="" ng-click="select.selectItem('All')">All</a>
+            </li>
+            <li role="menuitem" ng-repeat="item in items track by $index">
+                <a href="" ng-click="select.selectItem(item)">{{item.type || item}}</a>
+            </li>
+        </ul>
+    </div>
+</span>

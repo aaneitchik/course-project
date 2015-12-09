@@ -1,0 +1,77 @@
+@font-face {
+  font-family: BebasNeue-Book;
+  src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
+}
+
+@font-face {
+  font-family: BebasNeue-Regular;
+  src: url('/assets/fonts/bebas/BebasNeue-Regular.ttf');
+}
+
+$border-color: rgba(0, 0, 0, 0.1);
+$light-text-color: rgba(0, 0, 0, 0.5);
+$text-color: rgba(0, 0, 0, 0.7);
+
+.fileinfo.content-loading {
+  * {
+    display: none;
+  }
+}
+
+.fileinfo {
+
+  .title {
+    margin-bottom: 20px;
+
+    font-family: BebasNeue-Book;
+    font-size: 36px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .field {
+    margin-top: 7px;
+    margin-bottom: 6px;
+    color: $text-color;
+  }
+
+  .tag {
+    margin-left: 6px;
+    margin-right: 3px;
+  }
+
+  .value {
+    margin-left: 5px;
+    color: $light-text-color;
+  }
+
+  #description, #shortDescription {
+    margin-top: 20px;
+    text-align: justify;
+    color: $light-text-color;
+  }
+
+  #shortDescription {
+    margin-bottom: 25px;
+    font-size: 23px;
+  }
+
+  #description {
+    margin-bottom: 15px;
+  }
+
+  #downloadFile {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .default-btn {
+      margin-top: 20px;
+
+      font-family: BebasNeue-Book;
+      font-size: 23px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: $text-color !important;
+    }
+  }
+}

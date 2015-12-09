@@ -1,1 +1,23 @@
-<h1>BROWSE</h1>
+<div class="browse">
+    <h1 class="heading">BROWSE</h1>
+
+    <div class="loading-content" ng-class="{'content-loading': !browse.contentLoaded}">
+
+        <div class="file-container">
+            <div ng-if="browse.fileList.length != 0" class="flex-container">
+                <file-card file="file" class="flex-card" ng-repeat="file in browse.fileList track by $index"></file-card>
+            </div>
+            <div ng-if="browse.fileList.length == 0">
+                <p class="text-center">Sorry, there are no files in this category.</p>
+            </div>
+        </div>
+
+        <div class="pagination-container">
+            <uib-pagination total-items="browse.totalItems" items-per-page="browse.pageSize" ng-model="browse.currentPage"
+                            ng-change="browse.pageChanged()" max-size="browse.maxSize" class="pagination-sm"
+                            boundary-links="true"
+                            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                            last-text="&raquo;"></uib-pagination>
+        </div>
+    </div>
+</div>

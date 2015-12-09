@@ -1,0 +1,23 @@
+.browse {
+  position: relative;
+  height: 100%;
+  padding-bottom: 100px;
+
+  .file-container {
+    min-height: 500px;
+  }
+
+  .pagination-container {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.loading-content.content-loading {
+  * {
+    display: none;
+  }
+}
