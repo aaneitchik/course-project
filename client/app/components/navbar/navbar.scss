@@ -3,8 +3,11 @@
   src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
 }
 
+$button-color: rgba(0, 0, 0, 0.7);
+$icon-color: rgba(0, 0, 0, 0.7);
+
 .navbar, .navbar-brand {
-  color: white !important;
+  color: black !important;
   font-family: BebasNeue-Book;
   font-size: 32px;
   font-weight: 500;
@@ -13,11 +16,13 @@
 }
 
 .navbar {
-  background-color: #40c4c4;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 20px;
 
   li {
     a {
-      color: #ffffff !important;
+      color: black !important;
       padding-top: 20px;
       padding-bottom: 20px;
     }
@@ -29,8 +34,22 @@
 
   .navbar-right {
     a {
-      font-size: 23px !important;
-      padding-top: 20px !important;
+      font-size: 20px !important;
+      font-weight: 200;
+      padding-top: 17px !important;
+      padding-bottom: 10px !important;
+
+      .fa {
+        color: $icon-color !important;
+      }
+    }
+    a.default-btn {
+      margin-top: 7px;
+      margin-bottom: 5px !important;
+      padding: 10px !important;
+
+      font-size: 20px !important;
+      color: $button-color !important;
     }
   }
 }

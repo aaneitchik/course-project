@@ -1,0 +1,64 @@
+@font-face {
+  font-family: BebasNeue-Book;
+  src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
+}
+
+
+@font-face {
+  font-family: BebasNeue-Regular;
+  src: url('/assets/fonts/bebas/BebasNeue-Regular.ttf');
+}
+
+$border-color: rgba(0, 0, 0, 0.4);
+$sidebar-bg-color: #ffffff;
+$text-color: rgba(0, 0, 0, 0.6);
+$subcategory-color: rgba (0, 0, 0, 0.7);
+
+.sidebar {
+  padding: 20px 20px;
+
+  background-color: $sidebar-bg-color;
+
+  font-family: BebasNeue-Book;
+  font-size: 24px;
+  font-weight: 500;
+
+  .heading {
+    font-family: BebasNeue-Regular;
+    font-weight: 200;
+  }
+
+  hr {
+    margin: 7px 12px;
+  }
+
+  .type {
+    margin-left: 12px;
+
+    a {
+      color: $text-color;
+    }
+
+    a:hover, a:focus, a.selected-category {
+      color: black;
+      text-decoration: none;
+    }
+
+    a.subcategory:hover, a.subcategory:focus, a.selected-subcategory {
+      color: $subcategory-color;
+    }
+
+  }
+
+  .subcategory {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: $border-color;
+  }
+
+  .subcategories {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

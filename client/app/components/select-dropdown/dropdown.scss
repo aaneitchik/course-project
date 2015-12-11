@@ -1,0 +1,19 @@
+$text-color: rgba(0, 0, 0, 0.5);
+$hover-color: rgba(0, 0, 0, 0.7);
+
+.select-dropdown {
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  li {
+    a {
+      color: $text-color;
+    }
+
+    a:hover {
+      background-color: transparent;
+      color: $hover-color;
+    }
+  }
+}

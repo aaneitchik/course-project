@@ -1,0 +1,27 @@
+$light-text-color: rgba(0, 0, 0, 0.4);
+$text-color: rgba(0, 0, 0, 0.6);
+
+.validation {
+  background-color: white;
+
+  .badge {
+    background-color: white;
+  }
+
+  .fa {
+    font-size: 16px;
+    background-color: white;
+    color: $light-text-color;
+  }
+
+  .form-helper + .tooltip > .tooltip-inner {
+    color: $text-color;
+    background-color: #E7E7E7;
+  }
+
+  .form-helper + .tooltip > .tooltip-arrow {
+    border-top-color: #E7E7E7;
+    border-bottom-color: #E7E7E7;
+  }
+
+}

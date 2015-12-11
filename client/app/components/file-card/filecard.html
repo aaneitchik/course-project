@@ -1,0 +1,10 @@
+<div class="file-card" ui-sref="fileinfo({id: file._id})">
+	<p class="name"><span ng-class="filecard.getIconClass(file.category)"><i ng-class="filecard.getFaClass(file.category)"></i></span>{{file.title}}</p>
+	<p class="author">{{file.author}}</p>
+
+	<p class="description">{{file.shortDescription}}</p>
+
+	<p class="tags"><span class="tag" ng-repeat="tag in file.tags">#{{tag}}</span></p>
+
+	<p class="format">.{{file.fileExtension}}</p>
+</div>

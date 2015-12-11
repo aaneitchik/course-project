@@ -1,0 +1,27 @@
+.form-invalid {
+  background-color: white;
+
+  .badge {
+    background-color: white;
+  }
+
+  .fa {
+    font-size: 16px;
+    background-color: white;
+    color: #ff2631;
+  }
+
+  .invalid + .tooltip > .tooltip-inner {
+    color: white;
+    background-color: #ff2631;
+  }
+  .invalid + .tooltip > .tooltip-arrow {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .no-arrow + .tooltip > .tooltip-arrow {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+}

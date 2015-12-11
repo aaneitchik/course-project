@@ -2,18 +2,20 @@
 	<div class="container-fluid">
 
 		<div class="navbar-header">
-			<a class="navbar-brand" ui-sref="homepage">BSU Lib</a>
+			<a class="navbar-brand" ui-sref="browse">BSU Lib</a>
 		</div>
 
 		<div class="collapse navbar-collapse">
 
 			<ul class="nav navbar-nav">
-				<li><a ui-sref="homepage">HOME</a></li>
 				<li><a ui-sref="browse">BROWSE</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href=""><i class="fa fa-search"></i></a></li>
+				<li>
+					<a ui-sref="addfile" class="btn default-btn">Load File</a>
+				</li>
+				<li><a ui-sref="search"><i class="fa fa-search"></i></a></li>
 			</ul>
 		</div>
 	</div>
