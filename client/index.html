@@ -11,11 +11,11 @@
     <!-- built css files will go here... -->
     <!-- endinject -->
 </head>
-<body>
+<body ng-controller="MainController as main">
 <div class="container-fluid full-height">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 full-height">
         <div class="row">
-            <div class="col-xs-12 no-padding">
+            <div ng-if="!loginOrSignupPage()" class="col-xs-12 no-padding">
                 <navbar></navbar>
             </div>
         </div>
@@ -24,13 +24,14 @@
                 <div class="col-xs-12 col-sm-8 col-md-9 my-view full-height">
                     <div ui-view></div>
                 </div>
-                <div class="col-sm-4 col-md-3 sidebar-container">
+                <div ng-if="!loginOrSignupPage()" class="col-sm-4 col-md-3 sidebar-container">
                     <sidebar></sidebar>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- bower:js -->
 

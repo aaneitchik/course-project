@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 
+var angularFilesort = require('gulp-angular-filesort');
 var bowerFiles = require('main-bower-files');
 var browserSync = require('browser-sync').create();
 var clean = require('gulp-clean');
@@ -15,7 +16,6 @@ var reload = browserSync.reload;
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
-var debug = require('gulp-debug');
 
 var bases = {
     client: 'client/',
@@ -40,7 +40,7 @@ var proxy = proxyMiddleware('/api',
     {
         target: 'http://localhost:' + serverPort,
         pathRewrite: {
-            "/api": "/api"
+            '/api': '/api'
         }
     });
 
@@ -72,12 +72,13 @@ gulp.task('scripts', ['clean'], function () {
     return gulp.src(paths.scripts)
         .pipe(jshint())
         .pipe(jshint.reporter())
+        .pipe(angularFilesort())
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
         .pipe(gulp.dest(bases.dist + 'scripts/'))
         .pipe(rename('app.min.js'))
         .pipe(ngmin())
-        .pipe(uglify())
+        .pipe(uglify());
     //.pipe(gulp.dest(bases.dist + 'scripts/'));
 });
 

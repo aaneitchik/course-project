@@ -5,18 +5,21 @@
         .module('libApp')
         .config(routeConfig);
 
+    /*@ngInject*/
     function routeConfig($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('browse', {
                 url: '/',
                 controller: 'BrowseController',
                 controllerAs: 'browse',
-                templateUrl: 'app/page.browse/browse.html'
+                templateUrl: 'app/page.browse/browse.html',
+                authenticate: true
             }).state('addfile', {
                 url: '/addfile',
                 controller: 'AddFileController',
                 controllerAs: 'addfile',
-                templateUrl: 'app/page.addfile/addfile.html'
+                templateUrl: 'app/page.addfile/addfile.html',
+                authenticate: true
             }).state('fileinfo', {
                 url: '/fileinfo/:id',
                 params: {
@@ -24,7 +27,14 @@
                 },
                 controller: 'FileinfoController',
                 controllerAs: 'fileinfo',
-                templateUrl: 'app/page.fileinfo/fileinfo.html'
+                templateUrl: 'app/page.fileinfo/fileinfo.html',
+                authenticate: true
+            }).state('login', {
+                url: '/login',
+                controller: 'LoginController',
+                controllerAs: 'login',
+                templateUrl: 'app/page.login/login.html',
+                authenticate: false
             }).state('search', {
                 url: '/search',
                 controller: 'SearchController',
@@ -32,7 +42,14 @@
                 params: {
                   tag: null
                 },
-                templateUrl: 'app/page.search/search.html'
+                templateUrl: 'app/page.search/search.html',
+                authenticate: true
+            }).state('signup', {
+                url: '/signup',
+                controller: 'SignupController',
+                controllerAs: 'signup',
+                templateUrl: 'app/page.signup/signup.html',
+                authenticate: false
             });
 
         $urlRouterProvider.otherwise('/');

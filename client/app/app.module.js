@@ -1,14 +1,15 @@
-(function() {
+(function () {
+
     'use strict';
 
     angular
         .module('libApp', [
             'ui.bootstrap',
-            'ui.bootstrap.pagination',
             'ui.router',
             'file-model',
             'angular-toasty',
-            'ngTagsInput'
+            'ngTagsInput',
+            'ngCookies'
         ])
         .config(toastyConfig);
 
