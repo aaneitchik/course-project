@@ -7,7 +7,12 @@ $border-color: rgba(0, 0, 0, 0.1);
 $text-color: rgba(0, 0, 0, 0.7);
 
 .addfile {
-  padding-right: 10px;
+  padding-left: 30px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  background-color: white;
 
   #title {
     width: 90%;
@@ -16,7 +21,7 @@ $text-color: rgba(0, 0, 0, 0.7);
   #author, #publicationYear, #publicationPlace {
     margin-top: 20px;
     border: 1px solid $border-color !important;
-    border-radius: 0px;
+    border-radius: 0;
   }
 
   #description, #shortDescription {
@@ -25,7 +30,7 @@ $text-color: rgba(0, 0, 0, 0.7);
     padding-top: 10px;
 
     border: 1px solid $border-color !important;
-    border-radius: 0px;
+    border-radius: 0;
   }
 
   #select-category, #select-subcategory {
@@ -46,7 +51,6 @@ $text-color: rgba(0, 0, 0, 0.7);
 
   #loadFile {
     text-align: center;
-    margin-bottom: 20px;
 
     .default-btn {
       margin-top: 20px;

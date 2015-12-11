@@ -1,7 +1,12 @@
 .browse {
   position: relative;
   height: 100%;
+  padding-left: 30px;
+  padding-right: 40px;
+  padding-top: 20px;
   padding-bottom: 100px;
+
+  background-color: white;
 
   .file-container {
     min-height: 500px;

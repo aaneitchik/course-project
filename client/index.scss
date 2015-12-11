@@ -22,6 +22,7 @@
 }
 
 $bg-color: #f7f7f7;
+$light-border-color: rgba(0, 0, 0, 0.1);
 $border-color: rgba(0, 0, 0, 0.3);
 $light-text-color: rgba(0, 0, 0, 0.5);
 $text-color: rgba(0, 0, 0, 0.6);
@@ -47,11 +48,8 @@ body {
 
 .my-view {
   margin-bottom: -9999px;
-  padding-left: 30px;
-  padding-right: 40px;
-  padding-top: 20px;
   padding-bottom: 9999px;
-  background-color: white !important;
+  //background-color: white !important;
 }
 
 /*CARD LAYOUT*/
@@ -162,8 +160,8 @@ body {
 /*FORMS*/
 
 .material-input {
-  border: none;
   background: white !important;
+  border: 0;
 }
 
 .material-input:focus, .material-input:valid {
