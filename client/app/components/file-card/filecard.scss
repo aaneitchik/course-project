@@ -20,12 +20,17 @@ $light-text-color: rgba(0, 0, 0, 0.3);
   transition: box-shadow 350ms;
 
   background-color: rgba(247, 247, 247, 0.7);
-  word-break: break-all;
+  word-break: normal;
+
+  .icon-title {
+    display: inline-block;
+  }
 
   .name {
     margin-bottom: 3px;
     text-transform: uppercase;
     color: black;
+    display: inline;
   }
 
   .author {
@@ -45,10 +50,6 @@ $light-text-color: rgba(0, 0, 0, 0.3);
   .tags {
     margin-top: 10px;
     color: $tags-color;
-  }
-
-  .author, .description, .format, .tags {
-    margin-left: 34px;
   }
 
   .tag {
