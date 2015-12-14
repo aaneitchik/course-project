@@ -1,19 +1,24 @@
-(function() {
+(
+    /*
+     This directive is for the navbar.
+     */
 
-	'use strict';
+    function () {
 
-	angular
-		.module('libApp')
-		.directive('navbar', navbar);
+        'use strict';
 
-	/*@ngInject*/
-	function navbar() {
-		var directive = {
-			restrict: 'E',
-			templateUrl: 'app/components/navbar/navbar.html'
-		};
+        angular
+            .module('libApp')
+            .directive('navbar', navbar);
 
-		return directive;
-	}
+        /*@ngInject*/
+        function navbar() {
+            var directive = {
+                restrict: 'E',
+                templateUrl: 'app/components/navbar/navbar.html'
+            };
 
-})();
+            return directive;
+        }
+
+    })();

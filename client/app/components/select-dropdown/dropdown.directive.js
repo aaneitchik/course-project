@@ -1,4 +1,9 @@
-(function () {
+(
+    /*
+     This directive is used to create a beautiful dropdown, used as select form element.
+     */
+
+    function () {
 
     'use strict';
 

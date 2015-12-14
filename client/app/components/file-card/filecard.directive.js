@@ -1,4 +1,10 @@
-(function() {
+(
+	/*
+	This directive is used in card layout to display a card
+	for each file.
+	*/
+
+	function() {
 
 	'use strict';
 

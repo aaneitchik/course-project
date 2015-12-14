@@ -1,4 +1,9 @@
-(function() {
+(
+    /*
+     This directive is for the sidebar.
+     */
+
+    function() {
 
     'use strict';
 

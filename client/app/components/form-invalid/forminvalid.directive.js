@@ -1,4 +1,10 @@
-(function() {
+(
+    /*
+     This directive is used to help users fill in the form.
+     It displays an icon which shows a tooltip with error on hover.
+     */
+
+    function() {
 
     'use strict';
 

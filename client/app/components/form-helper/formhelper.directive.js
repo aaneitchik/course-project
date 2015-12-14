@@ -1,4 +1,10 @@
-(function () {
+(
+    /*
+     This directive is used to help users fill in the form.
+     It displays a tooltip on focus event.
+     */
+
+    function () {
 
     'use strict';
 
