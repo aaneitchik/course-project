@@ -7,7 +7,6 @@
   "description": "my course project",
   "main": "index.js",
   "moduleType": [
-    "es6",
     "globals",
     "node"
   ],
@@ -15,9 +14,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
