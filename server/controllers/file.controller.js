@@ -138,6 +138,7 @@ function constructCategoryQuery(category, subcategory) {
             query = {category: category, subcategory: subcategory};
         }
     }
+    return query;
 }
 
 function constructSearchQuery(searchQuery) {
