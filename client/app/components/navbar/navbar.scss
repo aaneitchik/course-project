@@ -7,7 +7,7 @@ $button-color: rgba(0, 0, 0, 0.7);
 $icon-color: rgba(0, 0, 0, 0.7);
 
 .navbar, .navbar-brand {
-  color: black !important;
+  color: black;
   font-family: BebasNeue-Book;
   font-size: 32px;
   font-weight: 500;
@@ -20,16 +20,23 @@ $icon-color: rgba(0, 0, 0, 0.7);
   margin-top: 10px;
   margin-bottom: 20px;
 
-  li {
-    a {
-      color: black !important;
-      padding-top: 20px;
-      padding-bottom: 20px;
+  .navbar-nav {
+    li {
+      a {
+        color: black;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
     }
   }
 
   .navbar-brand {
+    color: black;
     margin-right: 30px !important;
+  }
+
+  .navbar-brand:focus, .navbar-brand:hover {
+    color: black;
   }
 
   .navbar-right {

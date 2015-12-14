@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
     'use strict';
 
@@ -10,6 +10,7 @@
     function fileAPI($http) {
 
         var api = {
+            downloadLink: downloadLink,
             getFiles: getFiles,
             getFileById: getFileById,
             getFilesByPage: getFilesByPage,
@@ -21,38 +22,42 @@
 
         return api;
 
+        function downloadLink(id) {
+            return '/api/download_file/' + id;
+        }
+
         function getFiles() {
-            return $http.get('/api/files').then(function(result) {
+            return $http.get('/api/files').then(function (result) {
                 return result.data;
             });
         }
 
         function getFileById(id) {
-            return $http.get('/api/file/' + id).then(function(result) {
+            return $http.get('/api/file/' + id).then(function (result) {
                 return result.data;
             });
         }
 
         function getFilesByPage(pageNumber, pageSize, fileCategory, fileSubcategory) {
-            return $http.get('/api/files/' + pageNumber + '/' + pageSize + '/' + fileCategory + '/' + fileSubcategory).then(function(result) {
+            return $http.get('/api/files/' + pageNumber + '/' + pageSize + '/' + fileCategory + '/' + fileSubcategory).then(function (result) {
                 return result.data;
             });
         }
 
         function getNumberOfFiles(category, subcategory) {
-            return $http.get('/api/files_number/' + category +'/' + subcategory).then(function(result) {
+            return $http.get('/api/files_number/' + category + '/' + subcategory).then(function (result) {
                 return result.data;
             });
         }
 
         function getTypeCategories() {
-            return $http.get('/api/type_categories').then(function(result) {
+            return $http.get('/api/type_categories').then(function (result) {
                 return result.data;
             });
         }
 
         function findFiles(searchQuery) {
-            return $http.post('/api/find_files', searchQuery).then(function(result) {
+            return $http.post('/api/find_files', searchQuery).then(function (result) {
                 return result.data;
             });
         }
@@ -66,8 +71,8 @@
                     'Content-Type': undefined
                 },
                 transformRequest: angular.identity
-            }).then(function(result) {
-               return result;
+            }).then(function (result) {
+                return result;
             });
         }
 

@@ -25,10 +25,7 @@
         vm.pageChanged = pageChanged;
         vm.watchCategoryAndSubcategory = watchCategoryAndSubcategory;
 
-        vm.getNumberOfFiles();
         vm.watchCategoryAndSubcategory();
-
-        //////////////////////////
 
         function getFiles() {
             fileAPI.getFiles().then(function (data) {
@@ -58,14 +55,8 @@
         }
 
         function watchCategoryAndSubcategory() {
-            $rootScope.$watch('globalData.selectedCategory', function() {
+            $rootScope.$watch('[globalData.selectedCategory, globalData.selectedSubcategory]', function() {
                 vm.selectedCategory = $rootScope.globalData.selectedCategory;
-                vm.selectedSubcategory = $rootScope.globalData.selectedSubcategory;
-                vm.currentPage = 1;
-                vm.getNumberOfFiles();
-                vm.getFilesByPage();
-            });
-            $rootScope.$watch('globalData.selectedSubcategory', function() {
                 vm.selectedSubcategory = $rootScope.globalData.selectedSubcategory;
                 vm.currentPage = 1;
                 vm.getNumberOfFiles();

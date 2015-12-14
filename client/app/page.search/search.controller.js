@@ -26,8 +26,6 @@
         vm.getFileCategories();
         vm.watchCategory();
 
-        ///////////////////////////////////////////////////
-
         function addTags() {
             if (vm.tagList.length !== 0) {
                 vm.searchQuery.tags = [];

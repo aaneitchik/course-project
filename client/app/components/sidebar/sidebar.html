@@ -15,7 +15,7 @@
 			<p ng-repeat="item in category.subcategories"><a class="subcategory" href=""
                                                              ng-click="sidebar.selectSubcategory(item)"
                                                              ng-class="{'selected-subcategory': sidebar.isActiveSubcategory(item)}">
-                - {{item}}</a></p>
+                - {{::item}}</a></p>
 		</span>
         </div>
     </div>
