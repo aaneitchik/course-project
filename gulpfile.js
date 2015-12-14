@@ -17,6 +17,9 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 
+var ip = require('./config/ip');
+var ports = require('./config/ports');
+
 var bases = {
     client: 'client/',
     dist: 'dist/',
@@ -31,14 +34,11 @@ var paths = {
     svg: 'client/**/*.svg'
 };
 
-var serverPort = 8080;
-var uiPort = 3000;
-
 //Setup proxy to adress the server
 var proxyMiddleware = require('http-proxy-middleware');
 var proxy = proxyMiddleware('/api',
     {
-        target: 'http://localhost:' + serverPort,
+        target: 'http://' + ip + ':' + ports.server,
         pathRewrite: {
             '/api': '/api'
         }
@@ -91,7 +91,7 @@ gulp.task('browser-reload', ['inject'], function () {
 gulp.task('serve', ['inject'], function () {
     browserSync.init({
         startPath: '/',
-        port: uiPort,
+        port: ports.ui,
         server: {
             baseDir: bases.dist,
             middleware: [proxy],
@@ -129,7 +129,7 @@ gulp.task('server-reload', function (cb) {
         script: './server.js',
         ext: 'js',
         env: {
-            PORT: serverPort
+            PORT: ports.server
         },
         ignore: ['./node_modules/**', './dist', './client']
     }).on('start', function () {

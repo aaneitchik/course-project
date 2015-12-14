@@ -9,7 +9,7 @@ var flash = require('connect-flash');
 var session = require('express-session');
 
 var app = express();
-var port = process.env.PORT || 8080;
+var ports = require('./config/ports');
 
 var database = require('./config/database');
 mongoose.connect(database.url);
@@ -32,6 +32,6 @@ var fileRouter = require('./server/routes');
 
 app.use('/api', fileRouter);
 
-app.listen(port, function() {
-    console.log('Running on PORT ' + port);
+app.listen(ports.server, function() {
+    console.log('Running on PORT ' + ports.server);
 });
