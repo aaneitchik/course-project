@@ -15,7 +15,7 @@
     }
 
     /*@ngInject*/
-    function authInterceptor($rootScope, $q, AUTH_EVENTS) {
+    function authInterceptor($injector, $rootScope, $q) {
         var interceptor = {
             responseError: responseError
         };
@@ -23,12 +23,14 @@
         return interceptor;
 
         function responseError(response) {
-            $rootScope.$broadcast({
-                401: AUTH_EVENTS.notAuthenticated,
-                403: AUTH_EVENTS.notAuthorized,
-                419: AUTH_EVENTS.sessionTimeout,
-                440: AUTH_EVENTS.sessionTimeout
-            }[response.status], response);
+            var $state = $injector.get('$state');
+            switch(response.status) {
+                case 401:
+                    $state.go('login');
+                    break;
+                default:
+                    $state.go('error', {status: response.status});
+            }
             return $q.reject(response);
         }
     }

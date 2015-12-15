@@ -20,6 +20,15 @@
                 controllerAs: 'addfile',
                 templateUrl: 'app/page.addfile/addfile.html',
                 authenticate: true
+            }).state('error', {
+                url: '/error/:status',
+                params: {
+                    status: null
+                },
+                controller: 'ErrorController',
+                controllerAs: 'error',
+                templateUrl: 'app/page.error/error.html',
+                authenticate: false
             }).state('fileinfo', {
                 url: '/fileinfo/:id',
                 params: {
