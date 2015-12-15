@@ -7,7 +7,7 @@
         .controller('BrowseController', BrowseController);
 
     /*@ngInject*/
-    function BrowseController($rootScope, fileAPI) {
+    function BrowseController($scope, fileAPI, globalData) {
         var vm = this;
         vm.contentLoaded = false;
         vm.fileList = [];
@@ -25,6 +25,8 @@
         vm.pageChanged = pageChanged;
         vm.watchCategoryAndSubcategory = watchCategoryAndSubcategory;
 
+        vm.getNumberOfFiles();
+        vm.getFilesByPage();
         vm.watchCategoryAndSubcategory();
 
         function getFiles() {
@@ -55,9 +57,9 @@
         }
 
         function watchCategoryAndSubcategory() {
-            $rootScope.$watch('[globalData.selectedCategory, globalData.selectedSubcategory]', function() {
-                vm.selectedCategory = $rootScope.globalData.selectedCategory;
-                vm.selectedSubcategory = $rootScope.globalData.selectedSubcategory;
+            $scope.$on('category/subcategory changed', function() {
+                vm.selectedCategory = globalData.getCategory();
+                vm.selectedSubcategory = globalData.getSubcategory();
                 vm.currentPage = 1;
                 vm.getNumberOfFiles();
                 vm.getFilesByPage();

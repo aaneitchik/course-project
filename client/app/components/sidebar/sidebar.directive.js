@@ -24,7 +24,7 @@
     }
 
     /*@ngInject*/
-    function SidebarController($rootScope, $state, fileAPI) {
+    function SidebarController($state, fileAPI, globalData) {
         var vm = this;
         vm.typeCategories = [];
 
@@ -45,11 +45,11 @@
         }
 
         function isActiveCategory(category) {
-            return category === $rootScope.globalData.selectedCategory;
+            return category === globalData.getCategory();
         }
 
         function isActiveSubcategory(subcategory) {
-            return subcategory === $rootScope.globalData.selectedSubcategory;
+            return subcategory === globalData.getSubcategory();
         }
 
         function isActiveState(state) {
@@ -57,12 +57,11 @@
         }
 
         function selectCategory(category) {
-            $rootScope.globalData.selectedCategory = category;
-            $rootScope.globalData.selectedSubcategory = 'All';
+            globalData.setCategory(category);
         }
 
         function selectSubcategory(subcategory) {
-            $rootScope.globalData.selectedSubcategory = subcategory;
+            globalData.setSubcategory(subcategory);
         }
     }
 

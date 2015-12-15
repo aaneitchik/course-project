@@ -7,18 +7,12 @@
         .run(runBlock);
 
     /*@ngInject*/
-    function runBlock($state, $rootScope, authService) {
+    function runBlock($state, $rootScope, authService, globalData) {
         $rootScope.loginOrSignupPage = loginOrSignupPage;
-
-        $rootScope.globalData = {
-            selectedCategory: 'All',
-            selectedSubcategory: 'All'
-        };
 
         $rootScope.$on('$stateChangeStart',
             function (event, toState, toParams, fromState, fromParams) {
-                $rootScope.globalData.selectedCategory = 'All';
-                $rootScope.globalData.selectedSubcategory = 'All';
+                globalData.setCategory('All');
                 if (toState.authenticate && !authService.isAuthenticated()) {
                     console.log('not authenticated');
                     $state.go('login');
