@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="libApp" lang="en">
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>BSU Lib</title>
 
     <!-- bower:css -->
@@ -12,9 +12,9 @@
     <!-- endinject -->
 </head>
 <body ng-controller="MainController as main">
-<div class="container-fluid full-height">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 full-height">
-        <div class="row">
+<div class="container-fluid app-container full-height">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 inner-container full-height">
+        <div class="row nav-container">
             <div ng-if="!loginOrSignupPage()" class="col-xs-12 no-padding">
                 <navbar></navbar>
             </div>
