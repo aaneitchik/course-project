@@ -116,7 +116,6 @@ function downloadFile(res, id) {
     });
 }
 
-////////////////////////////////////
 function base64_encode(destination, filepath) {
     //need this prefix to donload from frontend
     var prefix = "data:" + ";base64,";

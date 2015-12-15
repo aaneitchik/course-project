@@ -76,16 +76,21 @@ fileRouter.route('/type_categories')
 //user sign in
 fileRouter.route('/signup')
     .post(passport.authenticate('local-signup'), function (req, res) {
-        console.log('success signup');
-        res.status(200).send(req.user);
+        res.status(200).send({sessionId: req.session.id, user: req.user.local.email});
     });
 
 //user log in
 fileRouter.route('/login')
     .post(passport.authenticate('local-login'), function (req, res) {
-        console.log('success login');
-        console.log(req.user);
-        res.status(200).send(req.user);
+        res.status(200).send({sessionId: req.session.id, user: req.user.local.email});
+    });
+
+fileRouter.route('/login_with_cookies')
+    .post(function(req, res, next) {
+        if(req.isAuthenticated()) {
+            res.status(200).send(req.user.local.email);
+        }
+        return next();
     });
 
 //user logs out
@@ -93,6 +98,7 @@ fileRouter.route('/logout')
     .post(isLoggedIn, function(req, res, next) {
         if(req.isAuthenticated()) {
             req.logout();
+            res.status(200).send();
         }
         return next();
     });

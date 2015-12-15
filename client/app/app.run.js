@@ -14,9 +14,12 @@
             function (event, toState, toParams, fromState, fromParams) {
                 globalData.setCategory('All');
                 if (toState.authenticate && !authService.isAuthenticated()) {
-                    console.log('not authenticated');
-                    $state.go('login');
-                    event.preventDefault();
+                    authService.tryLoginWithCookies().then(function() {
+                        event.preventDefault();
+                    }, function() {
+                        $state.go('login');
+                        event.preventDefault();
+                    });
                 }
             });
 

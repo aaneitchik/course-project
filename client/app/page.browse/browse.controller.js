@@ -7,7 +7,7 @@
         .controller('BrowseController', BrowseController);
 
     /*@ngInject*/
-    function BrowseController($scope, fileAPI, globalData) {
+    function BrowseController($scope, fileAPI, globalData, EVENTS) {
         var vm = this;
         vm.contentLoaded = false;
         vm.fileList = [];
@@ -57,7 +57,7 @@
         }
 
         function watchCategoryAndSubcategory() {
-            $scope.$on('category/subcategory changed', function() {
+            $scope.$on(EVENTS.categoryOrSubcategoryChanged, function() {
                 vm.selectedCategory = globalData.getCategory();
                 vm.selectedSubcategory = globalData.getSubcategory();
                 vm.currentPage = 1;

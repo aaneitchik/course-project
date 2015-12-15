@@ -2,12 +2,18 @@
 
     'use strict';
 
+    var EVENTS = {
+        categoryOrSubcategoryChanged: 'category/subcategory changed',
+        userChanged: 'user changed'
+    };
+
     angular
         .module('libApp')
+        .constant('EVENTS', EVENTS)
         .factory('globalData', globalData);
 
     /*@ngInject*/
-    function globalData($rootScope) {
+    function globalData($rootScope, EVENTS) {
         var service = {
             category: 'All',
             subcategory: 'All',
@@ -28,12 +34,12 @@
         function setCategory(category) {
             service.category = category;
             service.subcategory = 'All';
-            $rootScope.$broadcast('category/subcategory changed');
+            $rootScope.$broadcast(EVENTS.categoryOrSubcategoryChanged);
         }
 
         function setSubcategory(subcategory) {
             service.subcategory = subcategory;
-            $rootScope.$broadcast('category/subcategory changed');
+            $rootScope.$broadcast(EVENTS.categoryOrSubcategoryChanged);
         }
 
         return service;

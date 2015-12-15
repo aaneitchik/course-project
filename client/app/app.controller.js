@@ -7,17 +7,24 @@
         .controller('MainController', MainController);
 
     /*@ngInject*/
-    function MainController($scope, authService) {
+    function MainController($rootScope, $scope, $state, authService, EVENTS) {
 
         $scope.currentUser = null;
+        $scope.logout = logout;
         $scope.setCurrentUser = setCurrentUser;
 
-        if(authService.tryLoginWithCookies()) {
-            $scope.currentUser = authService.getUser();
+        authService.tryLoginWithCookies().then(function(user) {
+            $scope.setCurrentUser(user);
+        });
+
+        function logout() {
+            authService.logout();
+            $state.go('login');
         }
 
         function setCurrentUser(user) {
             $scope.currentUser = user;
+            $rootScope.$broadcast(EVENTS.userChanged);
         }
     }
 
