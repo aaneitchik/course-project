@@ -20,17 +20,12 @@ $text-color: rgba(0, 0, 0, 0.7);
 
   #author, #publicationYear, #publicationPlace {
     margin-top: 20px;
-    border: 1px solid $border-color !important;
-    border-radius: 0;
   }
 
   #description, #shortDescription {
-    width: 90% !important;
+    width: 90%;
     margin-top: 20px;
     padding-top: 10px;
-
-    border: 1px solid $border-color !important;
-    border-radius: 0;
   }
 
   #select-category, #select-subcategory {
@@ -59,7 +54,7 @@ $text-color: rgba(0, 0, 0, 0.7);
       font-size: 23px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: $text-color !important;
+      color: $text-color;
     }
   }
 

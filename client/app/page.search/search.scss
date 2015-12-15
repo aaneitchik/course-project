@@ -26,15 +26,13 @@ $text-color: rgba(0, 0, 0, 0.7);
 
   #title, #author, #publicationYear, #publicationPlace {
     margin-right: 8px;
-    border: 1px solid $border-color !important;
-    border-radius: 0;
   }
 
   #select-category, #select-subcategory {
     margin-top: 20px;
 
     select-dropdown {
-      margin-left: 8px !important;
+      margin-left: 8px;
     }
   }
 
@@ -48,7 +46,7 @@ $text-color: rgba(0, 0, 0, 0.7);
       font-size: 23px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: $text-color !important;
+      color: $text-color;
     }
   }
 

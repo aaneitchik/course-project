@@ -6,9 +6,9 @@
         <form name="searchForm" class="form-inline validation" novalidate>
 
             <div class="row">
-                <input type="text" class="form-control material-input" name="title" id="title" placeholder="Title"
+                <input type="text" class="form-control bordered-input" name="title" id="title" placeholder="Title"
                        ng-model="search.searchQuery.title">
-                <input type="text" class="form-control material-input" name="author" id="author"
+                <input type="text" class="form-control bordered-input" name="author" id="author"
                        placeholder="Author"
                        ng-model="search.searchQuery.author">
             </div>
@@ -42,10 +42,10 @@
 
             <!--If Documents, set publication place and year-->
             <div class="row" ng-if="search.searchQuery.category === 'Documents'">
-                <input type="text" class="form-control material-input" name="publicationPlace" id="publicationPlace"
+                <input type="text" class="form-control bordered-input" name="publicationPlace" id="publicationPlace"
                        placeholder="Place of publication"
                        ng-model="search.searchQuery.publicationPlace">
-                <input type="number" class="form-control material-input" name="publicationYear" id="publicationYear"
+                <input type="number" class="form-control bordered-input" name="publicationYear" id="publicationYear"
                        placeholder="Year of publication"
                        ng-model="search.searchQuery.publicationYear">
             </div>

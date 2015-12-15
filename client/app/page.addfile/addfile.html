@@ -11,13 +11,13 @@
         </h1>
 
         <!--Author-->
-        <input class="form-control material-input" name="author" id="author" placeholder="Author"
+        <input class="form-control bordered-input" name="author" id="author" placeholder="Author"
                ng-model="addfile.fileInfo.author" form-helper="'Please, specify the author of the document'" required>
         <form-invalid ng-if="fileForm.author.$invalid && fileForm.author.$touched"
                       text="'This field is required'"></form-invalid>
 
         <!--File short description-->
-        <textarea class="form-control material-input" name="shortDescription" rows="3" id="shortDescription"
+        <textarea class="form-control bordered-input" name="shortDescription" rows="3" id="shortDescription"
                   placeholder="Write short description here..."
                   ng-model="addfile.fileInfo.shortDescription" maxlength="255"
                   form-helper="'A short description to be shown on search pages, maximum length: 255 symbols'"
@@ -26,7 +26,7 @@
                       text="'This field is required'"></form-invalid>
 
         <!--File description-->
-        <textarea class="form-control material-input" name="description" rows="10" id="description"
+        <textarea class="form-control bordered-input" name="description" rows="10" id="description"
                   placeholder="Write your file description here..."
                   ng-model="addfile.fileInfo.description" maxlength="3000"
                   form-helper="'A full description of your document, maximum length: 3000 symbols'"
@@ -57,10 +57,10 @@
 
         <!--Select edition place and year if documents or books-->
         <div ng-if="addfile.fileInfo.category === 'Documents'">
-            <input type="text" class="form-control material-input" name="publicationPlace" id="publicationPlace"
+            <input type="text" class="form-control bordered-input" name="publicationPlace" id="publicationPlace"
                    placeholder="Place of publication" ng-model="addfile.fileInfo.publicationPlace"
                    form-helper="'Please, specify the place of publication for your document'" required>
-            <input type="number" class="form-control material-input" name="publicationYear" id="publicationYear"
+            <input type="number" class="form-control bordered-input" name="publicationYear" id="publicationYear"
                    placeholder="Year of publication" ng-model="addfile.fileInfo.publicationYear"
                    form-helper="'Please, specify the year of publication for your document'" required>
         </div>

@@ -32,7 +32,7 @@ $icon-color: rgba(0, 0, 0, 0.7);
 
   .navbar-brand {
     color: black;
-    margin-right: 30px !important;
+    margin-right: 30px;
   }
 
   .navbar-brand:focus, .navbar-brand:hover {
@@ -41,22 +41,22 @@ $icon-color: rgba(0, 0, 0, 0.7);
 
   .navbar-right {
     a {
-      font-size: 20px !important;
+      font-size: 20px;
       font-weight: 200;
-      padding-top: 17px !important;
-      padding-bottom: 10px !important;
+      padding-top: 17px;
+      padding-bottom: 10px;
 
       .fa {
-        color: $icon-color !important;
+        color: $icon-color;
       }
     }
     a.default-btn {
       margin-top: 7px;
-      margin-bottom: 5px !important;
-      padding: 10px !important;
+      margin-bottom: 5px;
+      padding: 10px;
 
-      font-size: 20px !important;
-      color: $button-color !important;
+      font-size: 20px;
+      color: $button-color;
     }
   }
 }

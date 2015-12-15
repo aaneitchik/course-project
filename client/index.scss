@@ -34,7 +34,7 @@ body {
 }
 
 .outer-container {
-  height: 100% !important;
+  height: 100%;
   overflow: hidden;
   margin-bottom: 50px;
 }
@@ -49,7 +49,6 @@ body {
 .my-view {
   margin-bottom: -9999px;
   padding-bottom: 9999px;
-  //background-color: white !important;
 }
 
 /*CARD LAYOUT*/
@@ -71,16 +70,16 @@ body {
 .heading {
   font-family: BebasNeue-Book;
   letter-spacing: 3.5px;
-  margin-top: 0 !important;
+  margin-top: 0;
   margin-left: 14px;
 }
 
 //for file titles
 .title {
-  margin-top: 0 !important;
+  margin-top: 0;
   font-family: BebasNeue-Book;
-  letter-spacing: 4px !important;
-  text-transform: uppercase !important;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 /*UTILITY CLASSES*/
@@ -96,16 +95,13 @@ body {
 .pagination {
 
   .disabled {
-    a {
-      cursor: default !important;
+    a, a:hover, a:focus {
+      cursor: default;
     }
   }
 
   .active {
-    a {
-      color: black;
-    }
-    a:hover {
+    a, a:hover, a:focus {
       background-color: white;
       color: black;
     }
@@ -115,7 +111,7 @@ body {
     a {
       border: none;
       color: $text-color;
-      background-color: white !important;
+      background-color: white;
     }
     a:hover {
       background-color: white;
@@ -129,12 +125,13 @@ body {
 .btn:hover {
   outline: none;
 }
+
 .default-btn {
-  border: 1px solid $border-color !important;
+  border: 1px solid $border-color;
   border-radius: 0px;
 
   background-color: transparent;
-  color: $light-text-color !important;
+  color: $light-text-color;
 }
 
 .btn-file {
@@ -160,7 +157,7 @@ body {
 /*FORMS*/
 
 .material-input {
-  background: white !important;
+  background: white;
   border: 0;
 }
 
@@ -169,11 +166,19 @@ body {
   outline: none;
 }
 
-.form-control {
-  border: none !important;
-  outline: 0 !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+.bordered-input {
+  border: 1px solid $light-border-color;
+  border-radius: 0;
+}
+
+.form-control, .form-control:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: $light-border-color;
 }
 
 textarea {
@@ -183,15 +188,12 @@ textarea {
 
 /*TOASTS*/
 #toasty {
-  .toast {
-    background-color: white !important;
-    //background-image: none !important;
-  }
-  .toast-text {
-    color: black !important;
-  }
-  .toasty-type-success {
-    //background-image: none !important;
+  .toast.toasty-theme-material {
+    background-color: white;
+
+    .toast-text {
+      color: black;
+    }
   }
 }
 
@@ -203,13 +205,13 @@ textarea {
 .bootstrap .tags {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
 .bootstrap .tags.focused {
   border-color: $border-color;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .bootstrap .tags .tag-item {
@@ -230,12 +232,12 @@ textarea {
   opacity: .4;
 }
 
-.bootstrap .autocomplete {
-  border-radius: 4px;
+.bootstrap .tags .tag-item .remove-button {
+  color: $light-text-color;
 }
 
-.bootstrap .remove-button {
-  color: $border-color !important;
+.bootstrap .autocomplete {
+  border-radius: 4px;
 }
 
 .bootstrap .remove-button:hover {
