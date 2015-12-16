@@ -113,4 +113,30 @@ $text-color: rgba(0, 0, 0, 0.5);
       }
     }
   }
+
+  .small-screen {
+    * {
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    .navbar-right {
+      li {
+        a {
+          padding-left: 5px;
+          padding-top: 13px;
+          padding-bottom: 13px;
+        }
+      }
+    }
+  }
+
+  .medium-screen {
+    * {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
 }

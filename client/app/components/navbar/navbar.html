@@ -1,32 +1,44 @@
 <nav class="navbar navbar-default">
-	<div class="container-fluid">
+    <div class="container-fluid">
 
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#colapsed-navbar" aria-expanded="false">
-				<i class="fa fa-bars"></i>
-			</button>
-			<a class="navbar-brand" ui-sref="browse">BSU Lib</a>
-		</div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsed-navbar"
+                    aria-expanded="false">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" ui-sref="browse">BSU Lib</a>
+        </div>
 
-		<div class="collapse navbar-collapse" id="collapsed-navbar">
+        <div class="collapse navbar-collapse" id="collapsed-navbar">
 
-			<ul class="nav navbar-nav">
-				<li><a ui-sref="browse">BROWSE</a></li>
-			</ul>
+            <div class="medium-screen">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="browse({category: 'All', subcategory: 'All'})">BROWSE</a></li>
+                </ul>
 
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a ui-sref="addfile" class="btn default-btn">Load File</a>
-				</li>
-				<li><a ui-sref="search"><i class="fa fa-search"></i></a></li>
-				<li class="dropdown">
-					<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
-					<ul class="dropdown-menu">
-						<li><a href="">{{navbar.currentUser}}</a></li>
-						<li><a href="" ng-click="logout()">Logout</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ui-sref="addfile" class="btn default-btn">Load File</a>
+                    </li>
+                    <li><a ui-sref="search"><i class="fa fa-search"></i></a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">{{navbar.currentUser}}</a></li>
+                            <li><a href="" ng-click="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="small-screen">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ui-sref="browse({category: 'All', subcategory: 'All'})">BROWSE</a></li>
+                    <li><a ui-sref="addfile">Load File</a></li>
+                    <li><a ui-sref="search">Search</a></li>
+                    <li><a href="" ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
 </nav>
