@@ -1,20 +1,20 @@
 <div class="signup-card">
-    <form name="signupForm" novalidate>
+    <form name="signupForm" class="validation" novalidate>
         <div class="form-inline">
             <label for="email"><i class="fa fa-user"></i></label>
             <input type="email" id="email" class="form-control bordered-input" ng-model="signup.userInfo.email"
-                   placeholder="Email"
+                   placeholder="Email" form-helper="Please, enter your email"
                    required>
         </div>
         <div class="form-inline">
             <label for="password"><i class="fa fa-unlock-alt"></i></label>
             <input type="password" id="password" class="form-control bordered-input" ng-model="signup.userInfo.password"
-                   placeholder="Password"
+                   placeholder="Password" form-helper="Please, enter password"
                    required>
         </div>
         <div class="form-inline">
             <div id="signupBtn">
-                <button class="btn default-btn" ng-click="signup.signup()">SIGN UP</button>
+                <button class="btn default-btn" ng-click="signup.signup()" ng-disabled="signupForm.$invalid">SIGN UP</button>
             </div>
         </div>
     </form>

@@ -7,7 +7,7 @@
         .controller('SignupController', SignupController);
 
     /*@ngInject*/
-    function SignupController($state, authService, msgService) {
+    function SignupController($state, $scope, authService, msgService) {
         var vm = this;
         vm.userInfo = {};
 

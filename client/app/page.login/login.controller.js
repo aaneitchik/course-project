@@ -19,7 +19,7 @@
                 $scope.setCurrentUser(user);
                 $state.go('browse');
             }, function() {
-                msgService.error('Sorry, there was an error while logging in.');
+                msgService.error('Sorry, there was an error while logging in. Please, check your username and password.');
             });
         }
     }

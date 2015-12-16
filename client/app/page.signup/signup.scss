@@ -1,17 +1,23 @@
-$border-color: rgba(0, 0, 0, 0.1);
+$icon-color: rgba(0, 0, 0, 0.6);
 $text-color: rgba(0, 0, 0, 0.7);
 
 .signup-card {
+  position: fixed;
+  left: 50%;
+  margin-top: 100px;
+  margin-left: -150px;
+
   form {
     text-align: center;
+
+    .fa {
+      margin-right: 10px;
+      color: $icon-color;
+    }
   }
 
   input {
     margin-top: 15px;
-  }
-
-  .fa {
-    margin-right: 10px;
   }
 
   #signupBtn {
@@ -32,9 +38,6 @@ $text-color: rgba(0, 0, 0, 0.7);
 
 .signup-card {
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
 
   padding-top: 30px;
   padding-bottom: 10px;

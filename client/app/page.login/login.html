@@ -1,5 +1,6 @@
 <div class="login-card">
     <form name="loginForm" novalidate>
+        <p>Don't have an account? <span><a ui-sref="signup">Sign up</a></span></p>
         <div class="form-inline">
             <label for="email"><i class="fa fa-user"></i></label>
             <input type="email" id="email" class="form-control bordered-input" ng-model="login.userInfo.email"
@@ -14,7 +15,7 @@
         </div>
         <div class="form-inline">
             <div id="loginBtn">
-                <button class="btn default-btn" ng-click="login.login()">LOGIN</button>
+                <button class="btn default-btn" ng-click="login.login()" ng-disabled="loginForm.$invalid">LOGIN</button>
             </div>
         </div>
     </form>

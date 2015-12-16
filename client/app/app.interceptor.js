@@ -15,7 +15,7 @@
     }
 
     /*@ngInject*/
-    function authInterceptor($injector, $rootScope, $q) {
+    function authInterceptor($injector, $q) {
         var interceptor = {
             responseError: responseError
         };
@@ -23,13 +23,16 @@
         return interceptor;
 
         function responseError(response) {
-            var $state = $injector.get('$state');
-            switch(response.status) {
-                case 401:
-                    $state.go('login');
-                    break;
-                default:
-                    $state.go('error', {status: response.status});
+            //needed so that errors on login or signup would not redirect to error page
+            if(! (response.config.url.startsWith('/api/login') || response.config.url.startsWith('/api/signup'))) {
+                var $state = $injector.get('$state');
+                switch(response.status) {
+                    case 401:
+                        $state.go('login');
+                        break;
+                    default:
+                        $state.go('error', {status: response.status});
+                }
             }
             return $q.reject(response);
         }

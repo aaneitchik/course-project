@@ -1,7 +1,11 @@
-$border-color: rgba(0, 0, 0, 0.1);
 $text-color: rgba(0, 0, 0, 0.7);
 
 .login-card {
+  position: fixed;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: 100px;
+
   form {
     text-align: center;
   }
@@ -12,6 +16,10 @@ $text-color: rgba(0, 0, 0, 0.7);
 
   .fa {
     margin-right: 10px;
+  }
+
+  a, a:hover {
+    text-decoration: none;
   }
 
   #loginBtn {
@@ -32,9 +40,6 @@ $text-color: rgba(0, 0, 0, 0.7);
 
 .login-card {
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
 
   padding-top: 30px;
   padding-bottom: 10px;

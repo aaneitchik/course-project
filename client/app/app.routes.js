@@ -28,7 +28,7 @@
                 controller: 'ErrorController',
                 controllerAs: 'error',
                 templateUrl: 'app/page.error/error.html',
-                authenticate: false
+                authenticate: true
             }).state('fileinfo', {
                 url: '/fileinfo/:id',
                 params: {
