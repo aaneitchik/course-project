@@ -10,6 +10,10 @@
         $stateProvider
             .state('browse', {
                 url: '/',
+                params: {
+                    category: 'All',
+                    subcategory: 'All'
+                },
                 controller: 'BrowseController',
                 controllerAs: 'browse',
                 templateUrl: 'app/page.browse/browse.html',

@@ -7,7 +7,7 @@
         .controller('BrowseController', BrowseController);
 
     /*@ngInject*/
-    function BrowseController($scope, fileAPI, globalData, EVENTS) {
+    function BrowseController($scope, $stateParams, fileAPI, globalData, EVENTS) {
         var vm = this;
         vm.contentLoaded = false;
         vm.fileList = [];
@@ -16,8 +16,12 @@
         vm.currentPage = 1;
         vm.maxSize = 5;
         vm.pageSize = 6;
-        vm.selectedCategory = 'All';
-        vm.selectedSubcategory = 'All';
+
+        globalData.setCategory($stateParams.category);
+        globalData.setSubcategory($stateParams.subcategory);
+
+        vm.selectedCategory = globalData.getCategory();
+        vm.selectedSubcategory = globalData.getSubcategory();
 
         vm.getFiles = getFiles;
         vm.getFilesByPage = getFilesByPage;
