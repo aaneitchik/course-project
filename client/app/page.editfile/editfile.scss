@@ -1,0 +1,53 @@
+@font-face {
+  font-family: BebasNeue-Book;
+  src: url('/assets/fonts/bebas/BebasNeue Book.ttf');
+}
+
+$border-color: rgba(0, 0, 0, 0.1);
+$text-color: rgba(0, 0, 0, 0.7);
+
+.editfile {
+  padding-left: 30px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  background-color: white;
+
+  #title {
+    width: 90%;
+  }
+
+  #author, #publicationYear, #publicationPlace {
+    margin-top: 20px;
+  }
+
+  #description, #shortDescription {
+    width: 90%;
+    margin-top: 20px;
+    padding-top: 10px;
+  }
+
+  #select-category, #select-subcategory {
+    margin-top: 20px;
+  }
+
+  #tags {
+    margin-top: 10px;
+  }
+
+  #editFile {
+    text-align: center;
+
+    .default-btn {
+      margin-top: 20px;
+
+      font-family: BebasNeue-Book;
+      font-size: 23px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: $text-color;
+    }
+  }
+
+}

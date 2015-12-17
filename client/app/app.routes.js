@@ -24,6 +24,15 @@
                 controllerAs: 'addfile',
                 templateUrl: 'app/page.addfile/addfile.html',
                 authenticate: true
+            }).state('editfile', {
+                url: '/editfile/:id',
+                params: {
+                    id: null
+                },
+                controller: 'EditFileController',
+                controllerAs: 'editfile',
+                templateUrl: 'app/page.editfile/editfile.html',
+                authenticate: true
             }).state('error', {
                 url: '/error/:status',
                 params: {

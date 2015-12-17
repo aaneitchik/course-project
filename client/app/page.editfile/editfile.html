@@ -1,0 +1,76 @@
+<div class="editfile">
+    <form name="fileForm" class="form-inline validation" novalidate>
+
+        <!--File title-->
+        <h1 class="title">
+            <input class="material-input" type="text" id="title" name="title" placeholder="Enter file name"
+                   ng-model="editfile.fileInfo.title" maxlength="50"
+                   form-helper="'Your document name, maximum length: 50 symbols'" required>
+            <form-invalid ng-if="fileForm.title.$invalid && fileForm.title.$touched"
+                          text="'This field is required'"></form-invalid>
+        </h1>
+
+        <!--Author-->
+        <input class="form-control bordered-input" name="author" id="author" placeholder="Author"
+               ng-model="editfile.fileInfo.author" form-helper="'Please, specify the author of the document'" required>
+        <form-invalid ng-if="fileForm.author.$invalid && fileForm.author.$touched"
+                      text="'This field is required'"></form-invalid>
+
+        <!--File short description-->
+        <textarea class="form-control bordered-input" name="shortDescription" rows="3" id="shortDescription"
+                  placeholder="Write short description here..."
+                  ng-model="editfile.fileInfo.shortDescription" maxlength="255"
+                  form-helper="'A short description to be shown on search pages, maximum length: 255 symbols'"
+                  required></textarea>
+        <form-invalid ng-if="fileForm.shortDescription.$invalid && fileForm.shortDescription.$touched"
+                      text="'This field is required'"></form-invalid>
+
+        <!--File description-->
+        <textarea class="form-control bordered-input" name="description" rows="10" id="description"
+                  placeholder="Write your file description here..."
+                  ng-model="editfile.fileInfo.description" maxlength="3000"
+                  form-helper="'A full description of your document, maximum length: 3000 symbols'"
+                  required></textarea>
+        <form-invalid ng-if="fileForm.description.$invalid && fileForm.description.$touched"
+                      text="'This field is required'"></form-invalid>
+
+        <!--Tags-->
+        <div id="tags">
+            <tags-input class="bootstrap" ng-model="editfile.tagList"></tags-input>
+        </div>
+
+
+        <!--Select category-->
+        <div id="select-category">
+            <select-dropdown title="'Select category'" items="editfile.fileCategories"
+                             selected-item="editfile.fileInfo.category"
+                             ng-model="editfile.allowedSubcategories"></select-dropdown>
+            <span>{{editfile.fileInfo.category}}</span>
+        </div>
+
+        <!--Select subcategory-->
+        <div ng-if="editfile.fileInfo.category" id="select-subcategory">
+            <select-dropdown title="'Select subcategory'" items="editfile.allowedSubcategories"
+                             selected-item="editfile.fileInfo.subcategory"></select-dropdown>
+            <span>{{editfile.fileInfo.subcategory}}</span>
+        </div>
+
+        <!--Select edition place and year if documents or books-->
+        <div ng-if="editfile.fileInfo.category === 'Documents'">
+            <input type="text" class="form-control bordered-input" name="publicationPlace" id="publicationPlace"
+                   placeholder="Place of publication" ng-model="editfile.fileInfo.publicationPlace"
+                   form-helper="'Please, specify the place of publication for your document'" required>
+            <input type="number" class="form-control bordered-input" name="publicationYear" id="publicationYear"
+                   placeholder="Year of publication" ng-model="editfile.fileInfo.publicationYear"
+                   form-helper="'Please, specify the year of publication for your document'" required>
+        </div>
+
+        <!--Load file to the lib-->
+        <div id="editFile">
+            <button class="btn default-btn" id="loadBtn" ng-click="editfile.editFile()"
+                    ng-disabled="fileForm.$invalid">
+                EDIT FILE
+            </button>
+        </div>
+    </form>
+</div>

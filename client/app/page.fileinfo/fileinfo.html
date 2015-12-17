@@ -1,6 +1,20 @@
 <div class="fileinfo" ng-class="{'content-loading': !fileinfo.contentLoaded}">
 
-    <h1 class="title">{{fileinfo.file.title}}</h1>
+    <p><span><h1 class="title inline">{{fileinfo.file.title}}</h1></span>
+
+        <span class="pull-right menu-dropdown" uib-dropdown>
+            <a href id="file-dropdown" uib-dropdown-toggle>
+                <i class="fa fa-ellipsis-v"></i>
+            </a>
+            <ul class="uib-dropdown-menu" aria-labelledby="file-dropdown">
+                <li><a ui-sref="editfile({id: fileinfo.fileId})">Edit document</a></li>
+                <hr>
+                <li><a href ng-click="fileinfo.deleteFile()">Delete document</a></li>
+            </ul>
+        </span>
+    </p>
+
+    <!--<h1 class="title">{{fileinfo.file.title}}</h1>-->
 
     <div id="shortDescription">
         {{fileinfo.file.shortDescription}}
@@ -10,11 +24,13 @@
 
     <p class="field">Author: <span class="value">{{fileinfo.file.author}}</span></p>
 
-    <p class="field">Category: <span class="value"><a ui-sref="browse({category: fileinfo.file.category})">{{fileinfo.file.category}}</a></span></p>
+    <p class="field">Category: <span class="value"><a ui-sref="browse({category: fileinfo.file.category})">{{fileinfo.file.category}}</a></span>
+    </p>
 
     <p class="field">Format: <span class="value">.{{fileinfo.file.fileExtension}}</span></p>
 
-    <p class="field">Tags:  <span class="value tag" ng-repeat="tag in fileinfo.file.tags"><a ui-sref="search({tag: tag})">#{{tag}}</a></span></p>
+    <p class="field">Tags: <span class="value tag" ng-repeat="tag in fileinfo.file.tags"><a
+            ui-sref="search({tag: tag})">#{{tag}}</a></span></p>
 
     <div id="description">
         {{fileinfo.file.description}}

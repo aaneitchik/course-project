@@ -9,6 +9,7 @@
 }
 
 $border-color: rgba(0, 0, 0, 0.1);
+$icon-color: rgba(0, 0, 0, 0.3);
 $light-text-color: rgba(0, 0, 0, 0.5);
 $text-color: rgba(0, 0, 0, 0.7);
 
@@ -32,6 +33,18 @@ $text-color: rgba(0, 0, 0, 0.7);
     font-size: 36px;
     font-weight: 500;
     text-transform: uppercase;
+  }
+
+  .menu-dropdown {
+    .fa {
+      font-size: 36px;
+      color: $icon-color;
+    }
+
+    hr {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
   }
 
   .field {

@@ -10,7 +10,9 @@
     function fileAPI($http) {
 
         var api = {
+            deleteFileById: deleteFileById,
             downloadLink: downloadLink,
+            editFile: editFile,
             getFiles: getFiles,
             getFileById: getFileById,
             getFilesByPage: getFilesByPage,
@@ -22,8 +24,20 @@
 
         return api;
 
+        function deleteFileById(id) {
+            return $http.delete('/api/file/' + id).then(function(result) {
+                return result.data;
+            });
+        }
+
         function downloadLink(id) {
             return '/api/download_file/' + id;
+        }
+
+        function editFile(id, fileInfo) {
+            return $http.put('/api/file/' + id, fileInfo).then(function(result) {
+                return result.data;
+            });
         }
 
         function getFiles() {

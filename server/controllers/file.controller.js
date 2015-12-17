@@ -4,7 +4,9 @@ var File = require('../models/file.model');
 var filePath = './uploads/';
 
 exports.addFile = addFile;
+exports.deleteFileById = deleteFileById;
 exports.downloadFile = downloadFile;
+exports.editFileById = editFileById;
 exports.findFiles = findFiles;
 exports.getFiles = getFiles;
 exports.getFileById = getFileById;
@@ -19,8 +21,8 @@ function addFile(res, fileInfo, file) {
         tags: fileInfo.tags,
         category: fileInfo.category,
         subcategory: fileInfo.subcategory,
-        publicationYear: fileInfo.publicationYear,
-        publicationPlace: fileInfo.publicationPlace,
+        publicationYear: fileInfo.publicationYear || null,
+        publicationPlace: fileInfo.publicationPlace || null,
         shortDescription: fileInfo.shortDescription,
         description: fileInfo.description,
         filepath: file.destination + '/' + file.originalname,
@@ -33,6 +35,41 @@ function addFile(res, fileInfo, file) {
         }
         else {
             res.status(200).send('File created successfully!');
+        }
+    });
+}
+
+//delete file by id
+function deleteFileById(res, id) {
+    File.findByIdAndRemove(id, function(err) {
+        if(err) {
+            res.status(500).send();
+        }
+        else {
+            res.status(200).send();
+        }
+    });
+}
+
+//edit file info
+function editFileById(res, id, fileInfo) {
+    var toUpdate = {
+        title: fileInfo.title,
+        author: fileInfo.author,
+        tags: fileInfo.tags,
+        category: fileInfo.category,
+        subcategory: fileInfo.subcategory,
+        publicationYear: null,
+        publicationPlace: null,
+        shortDescription: fileInfo.shortDescription,
+        description: fileInfo.description
+    };
+    File.update({_id: id}, toUpdate, function(err, rawResponse) {
+        if(err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.status(200).send();
         }
     });
 }

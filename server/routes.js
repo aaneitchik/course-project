@@ -43,6 +43,15 @@ fileRouter.route('/file/:id')
     .get(isLoggedIn, function (req, res) {
         var id = req.params.id;
         return fileCtrl.getFileById(res, id);
+    })
+    .put(isLoggedIn, function(req, res) {
+        var id = req.params.id;
+        var fileInfo = req.body;
+        return fileCtrl.editFileById(res, id, fileInfo);
+    })
+    .delete(isLoggedIn, function(req, res) {
+        var id = req.params.id;
+        return fileCtrl.deleteFileById(res, id);
     });
 
 //find files by query
