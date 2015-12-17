@@ -1,19 +1,23 @@
 <div class="file-card" ui-sref="fileinfo({id: file._id})">
-	<div class="row no-margin">
-		<div class="col-xs-1 no-padding">
-			<span class="icon-title" ng-class="filecard.getIconClass(file.category)"><i ng-class="filecard.getFaClass(file.category)"></i></span>
-		</div>
-		<div class="col-xs-11">
-			<span class="name">{{file.title}}</span>
 
-			<p class="author">{{file.author}}</p>
+    <p>
+        <span class="icon-title" ng-class="filecard.getIconClass(file.category)"><i
+                ng-class="filecard.getFaClass(file.category)"></i></span>
 
-			<p class="description">{{file.shortDescription}}</p>
+        <span class="name">{{file.title}}</span>
+    </p>
 
-			<p class="tags"><span class="tag" ng-repeat="tag in file.tags">#{{tag}}</span></p>
 
-			<p class="format">.{{file.fileExtension}}</p>
-		</div>
-	</div>
+    <p class="author">{{file.author}}</p>
+
+    <p class="description">{{file.shortDescription}}</p>
+
+    <div class="tags">
+        <span class="tag" ng-repeat="tag in file.tags">#{{tag}}</span>
+    </div>
+
+    <p class="format">.{{file.fileExtension}}</p>
+
+</div>
 
 </div>
